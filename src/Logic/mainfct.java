@@ -9,7 +9,7 @@ public class mainfct {
         
         frame.setContentPane(new ScreenFCT());
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(900, 500); 
+        frame.setSize(900, 550);
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
     }
