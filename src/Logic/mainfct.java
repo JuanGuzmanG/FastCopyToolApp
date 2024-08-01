@@ -1,7 +1,6 @@
 package Logic;
 
 import javax.swing.JFrame;
-
 import GUI.ScreenFCT;
 
 
