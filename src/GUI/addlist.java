@@ -56,8 +56,7 @@ public class addlist {
 		JButton btnNewButton = new JButton("New button");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				addlist addlistwindow = new addlist();
-				addlistwindow.frame.setVisible(false);
+				frame.setVisible(false);
 			}
 		});
 		btnNewButton.setBounds(81, 80, 89, 23);
