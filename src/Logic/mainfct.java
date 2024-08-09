@@ -1,11 +1,19 @@
 package Logic;
 
-import javax.swing.JFrame;
+import GUI.AddList;
+import GUI.Main;
 
+import javax.swing.*;
 
 public class mainfct {
     public static void main(String[] args){
+        Main gui = new Main();
 
+        gui.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        gui.pack();
+        gui.setSize(1000,600);
+        gui.setLocationRelativeTo(null);
+        gui.setVisible(true);
     }
 }
 
