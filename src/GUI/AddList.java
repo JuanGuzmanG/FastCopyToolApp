@@ -12,18 +12,21 @@ public class AddList extends JFrame{
     public void setMain(Main main){
         this.main = main;
     }
-
     public AddList(){
         cerrar();
         setContentPane(mainpanel_addlist);
         btn_listnamesave.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                String text = tf_newlistname.getText();
+                System.out.println(text);
+                main.agregarLista(text);
                 main.setVisible(true);
+                main.repaint();
+
                 setVisible(false);
             }
         });
-
     }
 
     public void cerrar(){

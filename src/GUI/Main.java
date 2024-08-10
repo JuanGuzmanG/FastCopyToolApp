@@ -5,6 +5,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class Main extends JFrame{
+    public DefaultListModel<String> listModel;
     private JButton btn_next;
     private JButton btn_back;
     private JButton btn_addlist;
@@ -18,18 +19,24 @@ public class Main extends JFrame{
     private JTextArea ta_2;
     private JTextArea tx_3;
     private JPanel mainPanel;
-    private JList<String> list;
+    public JList<String> list;
     private JLabel index;
+    private JButton deleteSelectionListButton;
+
+    public void agregarLista(String e){
+        listModel.addElement(e);
+        System.out.println("valor en el modal"+e);
+        list.setModel(listModel);
+    }
 
     public Main() {
-
     setContentPane(mainPanel);
-    DefaultListModel<String> listModel = new DefaultListModel<>();
+    listModel = new DefaultListModel<>();
+    list = new JList<>(listModel);
     //agregar a lista
-    listModel.addElement("lista 1");
-    listModel.addElement("lista 2");
-    listModel.addElement("lista 3");
-    list.setModel(listModel);
+//    listModel.addElement("lista 2");
+//    listModel.addElement("lista 3");
+//    list.setModel(listModel);
 
     btn_addlist.addActionListener(new ActionListener() {
         @Override
