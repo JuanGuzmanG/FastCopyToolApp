@@ -3,6 +3,7 @@ package GUI;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.Objects;
 
 public class Main extends JFrame{
     public DefaultListModel<String> listModel;
@@ -22,21 +23,11 @@ public class Main extends JFrame{
     public JList<String> list;
     private JLabel index;
     private JButton deleteSelectionListButton;
-
-//    public void agregarLista(String e){
-//        listModel.addElement(e);
-//        System.out.println("valor en el modal"+e);
-//        list.setModel(listModel);
-//    }
+    int cont = 0;
 
     public Main() {
     setContentPane(mainPanel);
-//    listModel = new DefaultListModel<>();
-//    list = new JList<>(listModel);
-    //agregar a lista
-//    listModel.addElement("lista 2");
-//    listModel.addElement("lista 3");
-//    list.setModel(listModel);
+
         listModel = new DefaultListModel<>();
         list.setModel(listModel);
     btn_addlist.addActionListener(new ActionListener() {
@@ -50,8 +41,19 @@ public class Main extends JFrame{
             setVisible(false);
         }
     });
-}
+        deleteSelectionListButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                listModel.remove(list.getSelectedIndex());
+            }
+        });
+    }
     public void agregarALista(String nombre) {
-        listModel.addElement(nombre);
+        cont++;
+        if(Objects.equals(nombre, "New List")){
+            listModel.addElement(nombre+" "+cont);
+        }else{
+            listModel.addElement(nombre);
+        }
     }
 }

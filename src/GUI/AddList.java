@@ -17,9 +17,6 @@ public class AddList extends JFrame{
 
 
     public AddList(){
-        tf_newlistname.setText("New List "+cont);
-        cont++;
-
         cerrar();
 
         setContentPane(mainpanel_addlist);
