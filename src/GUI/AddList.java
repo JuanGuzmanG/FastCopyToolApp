@@ -14,8 +14,6 @@ public class AddList extends JFrame{
         this.main = main;
     }
 
-
-
     public AddList(){
         cerrar();
 
