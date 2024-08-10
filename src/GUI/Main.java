@@ -23,21 +23,22 @@ public class Main extends JFrame{
     private JLabel index;
     private JButton deleteSelectionListButton;
 
-    public void agregarLista(String e){
-        listModel.addElement(e);
-        System.out.println("valor en el modal"+e);
-        list.setModel(listModel);
-    }
+//    public void agregarLista(String e){
+//        listModel.addElement(e);
+//        System.out.println("valor en el modal"+e);
+//        list.setModel(listModel);
+//    }
 
     public Main() {
     setContentPane(mainPanel);
-    listModel = new DefaultListModel<>();
-    list = new JList<>(listModel);
+//    listModel = new DefaultListModel<>();
+//    list = new JList<>(listModel);
     //agregar a lista
 //    listModel.addElement("lista 2");
 //    listModel.addElement("lista 3");
 //    list.setModel(listModel);
-
+        listModel = new DefaultListModel<>();
+        list.setModel(listModel);
     btn_addlist.addActionListener(new ActionListener() {
         @Override
         public void actionPerformed(ActionEvent e) {
@@ -50,5 +51,7 @@ public class Main extends JFrame{
         }
     });
 }
-
+    public void agregarALista(String nombre) {
+        listModel.addElement(nombre);
+    }
 }

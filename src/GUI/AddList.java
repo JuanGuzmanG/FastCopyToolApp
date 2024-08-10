@@ -8,22 +8,30 @@ public class AddList extends JFrame{
     private JTextField tf_newlistname;
     private JButton btn_listnamesave;
     private Main main;
+    int cont = 1;
 
     public void setMain(Main main){
         this.main = main;
     }
+
+
+
     public AddList(){
+        tf_newlistname.setText("New List "+cont);
+        cont++;
+
         cerrar();
+
         setContentPane(mainpanel_addlist);
         btn_listnamesave.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                String text = tf_newlistname.getText();
-                System.out.println(text);
-                main.agregarLista(text);
+                String nombreLista = tf_newlistname.getText();
+                if (!nombreLista.isEmpty()) {
+                    // Llamar al método en Main para agregar el nombre a la lista
+                    main.agregarALista(nombreLista);
+                }
                 main.setVisible(true);
-                main.repaint();
-
                 setVisible(false);
             }
         });
