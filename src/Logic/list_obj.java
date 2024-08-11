@@ -9,7 +9,7 @@ public class list_obj {
 
     public list_obj(String name) {
         this.name = name;
-        this.copies = new ArrayList<>();
+        this.copies = new ArrayList<>(9);
     }
 
     public String getName() {

@@ -3,10 +3,6 @@ package GUI;
 import Logic.list_obj;
 
 import javax.swing.*;
-import javax.swing.event.DocumentEvent;
-import javax.swing.event.DocumentListener;
-import javax.swing.event.ListSelectionEvent;
-import javax.swing.event.ListSelectionListener;
 import java.awt.*;
 import java.awt.datatransfer.Clipboard;
 import java.awt.datatransfer.StringSelection;
@@ -83,74 +79,78 @@ public class Main extends JFrame{
         btn_clear1.addActionListener(clear);
         btn_clear2.addActionListener(clear);
         btn_clear3.addActionListener(clear);
-
-        //add and save texts in TextsFields
-        list.addListSelectionListener(new ListSelectionListener() {
+        btn_next.addActionListener(new ActionListener() {
             @Override
-            public void valueChanged(ListSelectionEvent e) {
-                // Asegúrate de que la selección no esté ajustando
-                if (!e.getValueIsAdjusting()) {
-                    list_obj seleccionado = list.getSelectedValue();
-                    if (seleccionado != null) {
-                        List<String> textos = seleccionado.getCopies();
-                        // Actualiza las áreas de texto
-                        ta_1.setText(textos.size() > 0 ? textos.get(0) : "");
-                        ta_2.setText(textos.size() > 1 ? textos.get(1) : "");
-                        ta_3.setText(textos.size() > 2 ? textos.get(2) : "");
+            public void actionPerformed(ActionEvent e) {
+                list_obj seleccionado = list.getSelectedValue();
+                List<String> textos = seleccionado.getCopies();
+                int intIndice=0;
+                String indice = index.getText();
+                intIndice = Integer.parseInt(indice);
+                if(intIndice<3){
+                    intIndice++;
+                    indice = String.valueOf(intIndice);
+                    index.setText(indice);
+                    switch (intIndice) {
+                        case 0 -> {
+                            ta_1.setText(textos.get(0));
+                            ta_2.setText(textos.get(1));
+                            ta_3.setText(textos.get(2));
+                        }
+                        case 1 -> {
+                            ta_1.setText(textos.get(3));
+                            ta_2.setText(textos.get(4));
+                            ta_3.setText(textos.get(5));
+                        }
+                        case 2 -> {
+                            ta_1.setText(textos.get(6));
+                            ta_2.setText(textos.get(7));
+                            ta_3.setText(textos.get(8));
+                        }
                     }
+                }
+                for (String texto : textos
+                ) {
+                    System.out.println(texto);
                 }
             }
         });
-        ta_1.getDocument().addDocumentListener(new DocumentListener() {
+        btn_back.addActionListener(new ActionListener() {
             @Override
-            public void insertUpdate(DocumentEvent e) {
-                actualizarTexto(0, ta_1.getText());
-            }
+            public void actionPerformed(ActionEvent e) {
+                list_obj seleccionado = list.getSelectedValue();
+                List<String> textos = seleccionado.getCopies();
 
-            @Override
-            public void removeUpdate(DocumentEvent e) {
-                actualizarTexto(0, ta_1.getText());
-            }
-
-            @Override
-            public void changedUpdate(DocumentEvent e) {
-                actualizarTexto(0, ta_1.getText());
+                int intIndice=0;
+                String indice = index.getText();
+                intIndice = Integer.parseInt(indice);
+                System.out.println(intIndice);
+                if(intIndice>0){
+                    intIndice--;
+                    indice = String.valueOf(intIndice);
+                    index.setText(indice);
+                }
+                System.out.println(intIndice+" later");
+                switch (intIndice) {
+                    case 0 -> {
+                        ta_1.setText(textos.get(0));
+                        ta_2.setText(textos.get(1));
+                        ta_3.setText(textos.get(2));
+                    }
+                    case 1 -> {
+                        ta_1.setText(textos.get(0));
+                        ta_2.setText(textos.get(4));
+                        ta_3.setText(textos.get(5));
+                    }
+                }
+                for (String texto : textos
+                ) {
+                    System.out.println(texto);
+                }
             }
         });
-        ta_2.getDocument().addDocumentListener(new DocumentListener() {
-            @Override
-            public void insertUpdate(DocumentEvent e) {
-                actualizarTexto(1, ta_2.getText());
-            }
 
-            @Override
-            public void removeUpdate(DocumentEvent e) {
-                actualizarTexto(1, ta_2.getText());
-            }
 
-            @Override
-            public void changedUpdate(DocumentEvent e) {
-                actualizarTexto(1, ta_2.getText());
-            }
-        });
-
-        // DocumentListener para ta_3
-        ta_3.getDocument().addDocumentListener(new DocumentListener() {
-            @Override
-            public void insertUpdate(DocumentEvent e) {
-                actualizarTexto(2, ta_3.getText());
-            }
-
-            @Override
-            public void removeUpdate(DocumentEvent e) {
-                actualizarTexto(2, ta_3.getText());
-            }
-
-            @Override
-            public void changedUpdate(DocumentEvent e) {
-                actualizarTexto(2, ta_3.getText());
-            }
-        });
         ActionListener copy = new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -173,18 +173,6 @@ public class Main extends JFrame{
         btn_copy3.addActionListener(copy);
 
     }
-    private void actualizarTexto(int index, String nuevoTexto) {
-        list_obj seleccionado = list.getSelectedValue();
-        if (seleccionado != null) {
-            List<String> textos = seleccionado.getCopies();
-            // Asegúrate de que la lista tenga suficientes elementos
-            while (textos.size() <= index) {
-                textos.add("");
-            }
-            // Actualiza el texto en el índice correspondiente
-            textos.set(index, nuevoTexto);
-        }
-    }
     public void agregarALista(String nombre) {
         cont++;
         if(Objects.equals(nombre, "New List")){
@@ -198,9 +186,19 @@ public class Main extends JFrame{
         cont1++;
         texts.add("Ingresa datos aqui "+cont1);
         cont1++;
+        texts.add("Ingresa datos aqui "+cont1);
+        cont1++;
+        texts.add("Ingresa datos aqui "+cont1);
+        cont1++;
+        texts.add("Ingresa datos aqui "+cont1);
+        cont1++;
         newElement.setCopies(texts);
+
         listModel.addElement(newElement);
+        List<String> textos = newElement.getCopies();
+        for (String texto : textos
+        ) {
+            System.out.println(texto);
+        }
     }
-
-
 }
