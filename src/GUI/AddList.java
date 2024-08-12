@@ -10,17 +10,19 @@ public class AddList extends JFrame{
     private Main main;
     int cont = 1;
 
+        //class main
     public void setMain(Main main){
         this.main = main;
     }
 
     public AddList(){
         cerrar();
-
+            //open mainpanel_addlist as main panel
         setContentPane(mainpanel_addlist);
         btn_listnamesave.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                    //give a name to new list
                 String nombreLista = tf_newlistname.getText();
                 if (!nombreLista.isEmpty()) {
                     // Llamar al método en Main para agregar el nombre a la lista
@@ -32,6 +34,7 @@ public class AddList extends JFrame{
         });
     }
 
+        //class to open main when addlist closes
     public void cerrar(){
         setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
         addWindowListener(new WindowAdapter() {
