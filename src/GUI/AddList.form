@@ -5,7 +5,10 @@
     <constraints>
       <xy x="20" y="20" width="500" height="173"/>
     </constraints>
-    <properties/>
+    <properties>
+      <background color="-13355976"/>
+      <foreground color="-1050113"/>
+    </properties>
     <border type="none"/>
     <children>
       <component id="90979" class="javax.swing.JTextField" binding="tf_newlistname">
@@ -15,6 +18,7 @@
           </grid>
         </constraints>
         <properties>
+          <background color="-1050113"/>
           <horizontalAlignment value="0"/>
           <text value="New List"/>
         </properties>
