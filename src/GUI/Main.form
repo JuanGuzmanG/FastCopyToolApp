@@ -8,7 +8,7 @@
     <properties>
       <background color="-14145239"/>
       <enabled value="true"/>
-      <foreground color="-8880001"/>
+      <foreground color="-16579837"/>
     </properties>
     <border type="none"/>
     <children>
@@ -18,7 +18,7 @@
         </constraints>
         <properties>
           <font name="BankGothic Md BT" size="48"/>
-          <foreground color="-4867384"/>
+          <foreground color="-4144960"/>
           <text value="FAST COPY TOOL"/>
         </properties>
       </component>
@@ -42,6 +42,8 @@
               <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
+              <background color="-4144960"/>
+              <foreground color="-16316665"/>
               <text value="ADD LIST"/>
             </properties>
           </component>
@@ -53,11 +55,15 @@
               <horizontalScrollBarPolicy value="31"/>
               <verticalScrollBarPolicy value="20"/>
             </properties>
-            <border type="none"/>
+            <border type="empty"/>
             <children>
               <component id="dea0c" class="javax.swing.JList" binding="list">
                 <constraints/>
-                <properties/>
+                <properties>
+                  <background color="-15263718"/>
+                  <font name="Consolas" size="18" style="1"/>
+                  <foreground color="-986378"/>
+                </properties>
               </component>
             </children>
           </scrollpane>
@@ -66,6 +72,8 @@
               <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
+              <background color="-4144960"/>
+              <foreground color="-16250872"/>
               <text value="Delete Selection List"/>
             </properties>
           </component>
@@ -91,6 +99,8 @@
               <grid row="1" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
+              <background color="-4144960"/>
+              <foreground color="-16316665"/>
               <text value="&gt;&gt;&gt;"/>
             </properties>
           </component>
@@ -99,6 +109,8 @@
               <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
+              <background color="-4144960"/>
+              <foreground color="-16316665"/>
               <text value="&lt;&lt;&lt;"/>
             </properties>
           </component>
@@ -139,6 +151,9 @@
                   <grid row="1" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
                 </constraints>
                 <properties>
+                  <background color="-4144960"/>
+                  <enabled value="true"/>
+                  <foreground color="-16316665"/>
                   <text value="COPY"/>
                 </properties>
               </component>
@@ -147,6 +162,8 @@
                   <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
                 </constraints>
                 <properties>
+                  <background color="-4144960"/>
+                  <foreground color="-16316665"/>
                   <text value="CLEAR"/>
                 </properties>
               </component>
@@ -175,6 +192,8 @@
                     <constraints/>
                     <properties>
                       <background color="-15263718"/>
+                      <font name="Consolas" size="18" style="1"/>
+                      <foreground color="-854792"/>
                       <lineWrap value="true"/>
                     </properties>
                   </component>
@@ -185,6 +204,8 @@
                   <grid row="1" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
                 </constraints>
                 <properties>
+                  <background color="-4144960"/>
+                  <foreground color="-16448251"/>
                   <text value="COPY"/>
                 </properties>
               </component>
@@ -193,6 +214,8 @@
                   <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
                 </constraints>
                 <properties>
+                  <background color="-4144960"/>
+                  <foreground color="-16316665"/>
                   <text value="CLEAR"/>
                 </properties>
               </component>
@@ -216,11 +239,14 @@
                   <horizontalScrollBarPolicy value="31"/>
                   <verticalScrollBarPolicy value="20"/>
                 </properties>
-                <border type="none"/>
+                <border type="empty"/>
                 <children>
                   <component id="50863" class="javax.swing.JTextArea" binding="ta_1">
                     <constraints/>
                     <properties>
+                      <background color="-15263718"/>
+                      <font name="Consolas" size="18" style="1"/>
+                      <foreground color="-788742"/>
                       <lineWrap value="true"/>
                       <wrapStyleWord value="false"/>
                     </properties>
@@ -232,6 +258,8 @@
                   <grid row="1" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
                 </constraints>
                 <properties>
+                  <background color="-4144960"/>
+                  <foreground color="-16316665"/>
                   <text value="COPY"/>
                 </properties>
               </component>
@@ -240,6 +268,8 @@
                   <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
                 </constraints>
                 <properties>
+                  <background color="-4144960"/>
+                  <foreground color="-16316665"/>
                   <text value="CLEAR"/>
                 </properties>
               </component>
