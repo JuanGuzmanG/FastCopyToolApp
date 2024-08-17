@@ -19,17 +19,36 @@ public class AddList extends JFrame{
         cerrar();
             //open mainpanel_addlist as main panel
         setContentPane(mainpanel_addlist);
+
+        tf_newlistname.addFocusListener(new FocusAdapter() {
+            @Override
+            public void focusGained(FocusEvent e) {
+                tf_newlistname.selectAll(); // Selecciona todo el texto cuando se obtiene el foco
+            }
+        });
+
+        tf_newlistname.addKeyListener(new KeyAdapter() {
+            @Override
+            public void keyPressed(KeyEvent e) {
+                if (e.getKeyCode() == KeyEvent.VK_ENTER) {
+                    btn_listnamesave.doClick(); // Simula un clic en el botón cuando se presiona Enter
+                }
+            }
+        });
+
         btn_listnamesave.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                     //give a name to new list
-                String nombreLista = tf_newlistname.getText();
-                if (!nombreLista.isEmpty()) {
+                if(tf_newlistname.getText().length()>20){
+                    Error();
+                } else if(!tf_newlistname.getText().isEmpty()) {
                     // Llamar al método en Main para agregar el nombre a la lista
-                    main.agregarALista(nombreLista);
+                    main.agregarALista(tf_newlistname.getText());
+                    main.setVisible(true);
+                    setVisible(false);
                 }
-                main.setVisible(true);
-                setVisible(false);
+
             }
         });
     }
@@ -45,12 +64,17 @@ public class AddList extends JFrame{
             }
         });
     }
-/* Cuadros de dialogo
-public void salida(){
-        int valor = JOptionPane.showConfirmDialog(this, "quiere salir","Advertencia", JOptionPane.YES_NO_OPTION);
+
+public void Error(){
+        JOptionPane.showMessageDialog(this, "el nombre debe mantener 20 caracteres", "advertencia", JOptionPane.OK_OPTION);
+        tf_newlistname.setText("New List");
+        /*
+        int valor = JOptionPane.showConfirmDialog(this, "El nombre no debe tener mas de 20 caracteres","Advertencia", JOptionPane.OK_CANCEL_OPTION);
+        cuadro cuando se usa JOptionPane.YES_NO_OPTION
         if(valor==JOptionPane.YES_OPTION){
             JOptionPane.showMessageDialog(null,"gracias","adios",JOptionPane.INFORMATION_MESSAGE);
             System.exit(0);
         }
-    }*/
+*/
+    }
 }
