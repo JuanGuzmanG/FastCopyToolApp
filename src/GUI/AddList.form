@@ -5,7 +5,10 @@
     <constraints>
       <xy x="20" y="20" width="500" height="173"/>
     </constraints>
-    <properties/>
+    <properties>
+      <background color="-14145239"/>
+      <foreground color="-1050113"/>
+    </properties>
     <border type="none"/>
     <children>
       <component id="90979" class="javax.swing.JTextField" binding="tf_newlistname">
@@ -15,6 +18,7 @@
           </grid>
         </constraints>
         <properties>
+          <background color="-1050113"/>
           <horizontalAlignment value="0"/>
           <text value="New List"/>
         </properties>
@@ -24,7 +28,9 @@
           <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
+          <background color="-2102791"/>
           <font name="BankGothic Lt BT" size="36"/>
+          <foreground color="-986378"/>
           <text value="New List Name"/>
         </properties>
       </component>
@@ -33,6 +39,8 @@
           <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
+          <background color="-4144960"/>
+          <foreground color="-16316665"/>
           <text value="Save new list"/>
         </properties>
       </component>
