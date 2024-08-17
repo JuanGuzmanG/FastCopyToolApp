@@ -7,7 +7,6 @@ import javax.swing.*;
 
 public class mainfct {
     public static void main(String[] args){
-        //pruebaaaaa
         //GUI creation and adjustments
         Main gui = new Main();
         gui.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
