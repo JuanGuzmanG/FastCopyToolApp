@@ -20,13 +20,14 @@ public class AddList extends JFrame{
             //open mainpanel_addlist as main panel
         setContentPane(mainpanel_addlist);
 
+            //select all text for quick editing
         tf_newlistname.addFocusListener(new FocusAdapter() {
             @Override
             public void focusGained(FocusEvent e) {
                 tf_newlistname.selectAll(); // Selecciona todo el texto cuando se obtiene el foco
             }
         });
-
+            //when press "enter" key its saved automatically
         tf_newlistname.addKeyListener(new KeyAdapter() {
             @Override
             public void keyPressed(KeyEvent e) {
@@ -35,7 +36,7 @@ public class AddList extends JFrame{
                 }
             }
         });
-
+            //save list with the entered name
         btn_listnamesave.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -66,8 +67,7 @@ public class AddList extends JFrame{
     }
 
 public void Error(){
-        JOptionPane.showMessageDialog(this, "el nombre debe mantener 20 caracteres", "advertencia", JOptionPane.OK_OPTION);
-        tf_newlistname.setText("New List");
+        JOptionPane.showMessageDialog(this, "el nombre solo puede tener 20 caracteres", "advertencia", JOptionPane.OK_OPTION);
         /*
         int valor = JOptionPane.showConfirmDialog(this, "El nombre no debe tener mas de 20 caracteres","Advertencia", JOptionPane.OK_CANCEL_OPTION);
         cuadro cuando se usa JOptionPane.YES_NO_OPTION

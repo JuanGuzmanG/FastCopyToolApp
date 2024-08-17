@@ -89,9 +89,17 @@ public class Main extends JFrame{
             public void valueChanged(ListSelectionEvent e) {
                 if(!e.getValueIsAdjusting()){
                     updateTx();
+                    index.setText("0");
+                    list_obj seleccionado = list.getSelectedValue();
+                    List<String> textos = seleccionado.getCopies();
+                    ta_1.setText(textos.get(0));
+                    ta_2.setText(textos.get(1));
+                    ta_3.setText(textos.get(2));
                 }
             }
         });
+
+
 
             //Index NextBtn
         btn_next.addActionListener(new ActionListener() {
