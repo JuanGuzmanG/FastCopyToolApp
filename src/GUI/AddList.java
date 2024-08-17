@@ -48,6 +48,8 @@ public class AddList extends JFrame{
                     main.agregarALista(tf_newlistname.getText());
                     main.setVisible(true);
                     setVisible(false);
+                } else{
+                    JOptionPane.showMessageDialog(mainpanel_addlist,"El nombre no puede estar vacio","No null", JOptionPane.OK_OPTION);
                 }
 
             }

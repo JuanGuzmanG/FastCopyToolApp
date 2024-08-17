@@ -46,7 +46,7 @@ public class Main extends JFrame{
 
         //Open AddList window
     btn_addlist.addActionListener(new ActionListener() {
-        @Override
+            @Override
         public void actionPerformed(ActionEvent e) {
             AddList addList = new AddList();
             //Send Main to Addlist class
@@ -223,24 +223,10 @@ public class Main extends JFrame{
         }
         list_obj newElement = new list_obj(nombre);
         List<String> texts = new ArrayList<>();
-        texts.add("Ingresa datos aqui "+cont1);
-        cont1++;
-        texts.add("Ingresa datos aqui "+cont1);
-        cont1++;
-        texts.add("Ingresa datos aqui "+cont1);
-        cont1++;
-        texts.add("Ingresa datos aqui "+cont1);
-        cont1++;
-        texts.add("Ingresa datos aqui "+cont1);
-        cont1++;
-        texts.add("Ingresa datos aqui "+cont1);
-        cont1++;
-        texts.add("Ingresa datos aqui "+cont1);
-        cont1++;
-        texts.add("Ingresa datos aqui "+cont1);
-        cont1++;
-        texts.add("Ingresa datos aqui "+cont1);
-        cont1++;
+        for (int i=0;i<9;i++){
+            texts.add("Ingresa datos aqui "+cont1);
+            cont1++;
+        }
         newElement.setCopies(texts);
         listModel.addElement(newElement);
 
