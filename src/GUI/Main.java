@@ -71,6 +71,8 @@ public class Main extends JFrame{
                         JOptionPane.showMessageDialog(null,"Eliminado Correctamente","Eliminacion",JOptionPane.INFORMATION_MESSAGE);
                         listModel.remove(list.getSelectedIndex());
                     }
+
+                    list.setSelectedIndex(list.getLastVisibleIndex());
                 }else {
                     JOptionPane.showMessageDialog(mainPanel, "no hay mas listas para borrar", "advertencia", JOptionPane.OK_OPTION);
                 }
@@ -241,6 +243,8 @@ public class Main extends JFrame{
         cont1++;
         newElement.setCopies(texts);
         listModel.addElement(newElement);
+
+        list.setSelectedIndex(list.getLastVisibleIndex());
     }
 
     private void updateTx(){
