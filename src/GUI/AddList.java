@@ -70,7 +70,7 @@ public void Error(){
         JOptionPane.showMessageDialog(this, "el nombre solo puede tener 20 caracteres", "advertencia", JOptionPane.OK_OPTION);
         /*
         int valor = JOptionPane.showConfirmDialog(this, "El nombre no debe tener mas de 20 caracteres","Advertencia", JOptionPane.OK_CANCEL_OPTION);
-        cuadro cuando se usa JOptionPane.YES_NO_OPTION
+
         if(valor==JOptionPane.YES_OPTION){
             JOptionPane.showMessageDialog(null,"gracias","adios",JOptionPane.INFORMATION_MESSAGE);
             System.exit(0);

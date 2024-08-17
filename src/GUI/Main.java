@@ -63,7 +63,17 @@ public class Main extends JFrame{
         deleteSelectionListButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                listModel.remove(list.getSelectedIndex());
+
+                if(list.getSelectedIndex()!=-1){
+                    int valor = JOptionPane.showConfirmDialog(mainPanel, "esta seguro de elimnar la lista "+list.getSelectedValue().getName(),"Advertencia", JOptionPane.YES_NO_OPTION);
+
+                    if(valor==JOptionPane.YES_OPTION){
+                        JOptionPane.showMessageDialog(null,"Eliminado Correctamente","Eliminacion",JOptionPane.INFORMATION_MESSAGE);
+                        listModel.remove(list.getSelectedIndex());
+                    }
+                }else {
+                    JOptionPane.showMessageDialog(mainPanel, "no hay mas listas para borrar", "advertencia", JOptionPane.OK_OPTION);
+                }
             }
         });
 
@@ -89,12 +99,18 @@ public class Main extends JFrame{
             public void valueChanged(ListSelectionEvent e) {
                 if(!e.getValueIsAdjusting()){
                     updateTx();
-                    index.setText("0");
-                    list_obj seleccionado = list.getSelectedValue();
-                    List<String> textos = seleccionado.getCopies();
-                    ta_1.setText(textos.get(0));
-                    ta_2.setText(textos.get(1));
-                    ta_3.setText(textos.get(2));
+                    try {
+                        index.setText("0");
+                        list_obj seleccionado = list.getSelectedValue();
+                        List<String> textos = seleccionado.getCopies();
+                        ta_1.setText(textos.get(0));
+                        ta_2.setText(textos.get(1));
+                        ta_3.setText(textos.get(2));
+                    }catch (NullPointerException exception){
+                        ta_1.setText("");
+                        ta_2.setText("");
+                        ta_3.setText("");
+                    }
                 }
             }
         });
