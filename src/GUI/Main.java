@@ -65,9 +65,9 @@ public class Main extends JFrame{
                 if(!e.getValueIsAdjusting()){
                     try {
                         index.setText("0");
-                        list_obj seleccionado = list.getSelectedValue();
-                        List<String> textos = seleccionado.getCopies();
-                        setTextAreas(textos,0);
+                        list_obj selected = list.getSelectedValue();
+                        List<String> texts = selected.getCopies();
+                        setTextAreas(texts,0);
                     }catch (NullPointerException exception){
                         clearTextAreas();
                     }
