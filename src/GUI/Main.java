@@ -97,97 +97,15 @@ public class Main extends JFrame{
         });
 
         //Index NextBtn
-        btn_next.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                if(!(list.getSelectedValue()==null)){
-                    list_obj seleccionado = list.getSelectedValue();
-                    List<String> textos = seleccionado.getCopies();
-
-                    int intIndice=0;
-                    String indice = index.getText();
-                    intIndice = Integer.parseInt(indice);
-
-                    if(intIndice<2){
-                        intIndice++;
-                        indice = String.valueOf(intIndice);
-                        index.setText(indice);
-                        switch (intIndice) {
-                            case 0 -> {
-                                ta_1.setText(textos.get(0));
-                                ta_2.setText(textos.get(1));
-                                ta_3.setText(textos.get(2));
-                            }
-                            case 1 -> {
-                                ta_1.setText(textos.get(3));
-                                ta_2.setText(textos.get(4));
-                                ta_3.setText(textos.get(5));
-                            }
-                            case 2 -> {
-                                ta_1.setText(textos.get(6));
-                                ta_2.setText(textos.get(7));
-                                ta_3.setText(textos.get(8));
-                            }
-                        }
-                    }
-                }
-            }
-        });
+        btn_next.addActionListener( e -> {updateIndex_TextAreas(1);});
 
         //Index BackBtn
-        btn_back.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                if(!(list.getSelectedValue()==null)){
-                    list_obj seleccionado = list.getSelectedValue();
-                    List<String> textos = seleccionado.getCopies();
-
-                    int intIndice=0;
-                    String indice = index.getText();
-                    intIndice = Integer.parseInt(indice);
-
-                    if(intIndice>0){
-                        intIndice--;
-                        indice = String.valueOf(intIndice);
-                        index.setText(indice);
-                    }
-                    switch (intIndice) {
-                        case 0 -> {
-                            ta_1.setText(textos.get(0));
-                            ta_2.setText(textos.get(1));
-                            ta_3.setText(textos.get(2));
-                        }
-                        case 1 -> {
-                            ta_1.setText(textos.get(3));
-                            ta_2.setText(textos.get(4));
-                            ta_3.setText(textos.get(5));
-                        }
-                    }
-                }
-            }
-        });
+        btn_back.addActionListener(e -> {updateIndex_TextAreas(-1);});
 
         //copy text
-        ActionListener copy = new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                String copytext="";
-                if(e.getSource().equals(btn_copy1)){
-                    copytext = ta_1.getText();
-                } else if (e.getSource().equals(btn_copy2)){
-                    copytext = ta_2.getText();
-                } else if (e.getSource().equals(btn_copy3)) {
-                    copytext = ta_3.getText();
-                }
-                //save in clipboard
-                Toolkit tk = Toolkit.getDefaultToolkit();
-                Clipboard cb = tk.getSystemClipboard();
-                cb.setContents(new StringSelection(copytext),null);
-            }
-        };
-        btn_copy1.addActionListener(copy);
-        btn_copy2.addActionListener(copy);
-        btn_copy3.addActionListener(copy);
+        btn_copy1.addActionListener(e -> copy(ta_1.getText()));
+        btn_copy2.addActionListener(e -> copy(ta_2.getText()));
+        btn_copy3.addActionListener(e -> copy(ta_3.getText()));
 
         //save changes
         addDocumentlisteners();
@@ -304,7 +222,6 @@ public class Main extends JFrame{
 
     //nuevas clases
 
-
     public void setTextAreas(List<String> texts, int baseIndex){
         if (baseIndex + 2 < texts.size()) {
             ta_1.setText(texts.get(baseIndex));
@@ -319,5 +236,20 @@ public class Main extends JFrame{
         ta_1.setText("Ingrese texto a copiar");
         ta_2.setText("Ingrese texto a copiar");
         ta_3.setText("Ingrese texto a copiar");
+    }
+
+    public void updateIndex_TextAreas(int direction){
+        list_obj selected = list.getSelectedValue();
+        if(selected!=null){
+            int currentIndex = Integer.parseInt(index.getText());
+            int newIndex = Math.max(0,Math.min(currentIndex+direction,2));
+            index.setText(String.valueOf(newIndex));
+            setTextAreas(selected.getCopies(),newIndex*3);
+        }
+    }
+
+    public void copy(String text){
+        Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
+        clipboard.setContents(new StringSelection(text),null);
     }
 }
