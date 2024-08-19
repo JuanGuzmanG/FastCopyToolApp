@@ -68,16 +68,13 @@ public class Main extends JFrame{
         });
 
         //clear textArea
-        ActionListener clear = new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                if (e.getSource().equals(btn_clear1)) {
-                    ta_1.setText("");
-                } else if (e.getSource().equals(btn_clear2)) {
-                    ta_2.setText("");
-                } else if (e.getSource().equals(btn_clear3)) {
-                    ta_3.setText("");
-                }
+        ActionListener clear = e -> {
+            if (e.getSource().equals(btn_clear1)) {
+                ta_1.setText("");
+            } else if (e.getSource().equals(btn_clear2)) {
+                ta_2.setText("");
+            } else if (e.getSource().equals(btn_clear3)) {
+                ta_3.setText("");
             }
         };
         btn_clear1.addActionListener(clear);
@@ -85,28 +82,19 @@ public class Main extends JFrame{
         btn_clear3.addActionListener(clear);
 
         //Update content when select a list
-        list.addListSelectionListener(new ListSelectionListener() {
-            @Override
-            public void valueChanged(ListSelectionEvent e) {
+        list.addListSelectionListener(e -> {
                 if(!e.getValueIsAdjusting()){
                     updateTx();
                     try {
                         index.setText("0");
                         list_obj seleccionado = list.getSelectedValue();
                         List<String> textos = seleccionado.getCopies();
-                        ta_1.setText(textos.get(0));
-                        ta_2.setText(textos.get(1));
-                        ta_3.setText(textos.get(2));
+                        setTextAreas(textos,0);
                     }catch (NullPointerException exception){
-                        ta_1.setText("");
-                        ta_2.setText("");
-                        ta_3.setText("");
+                        clearTextAreas();
                     }
                 }
-            }
         });
-
-
 
         //Index NextBtn
         btn_next.addActionListener(new ActionListener() {
@@ -227,8 +215,7 @@ public class Main extends JFrame{
         list_obj selected = list.getSelectedValue();
         if(selected!=null){
             List<String> texts = selected.getCopies();
-            int intIndice = Integer.parseInt(index.getText());
-            int baseIndex = intIndice*3;
+            int baseIndex = Integer.parseInt(index.getText())*3;
 
             if(baseIndex + 2< texts.size()){
                 ta_1.setText(texts.get(baseIndex));
@@ -313,5 +300,24 @@ public class Main extends JFrame{
                 }
             }
         }
+    }
+
+    //nuevas clases
+
+
+    public void setTextAreas(List<String> texts, int baseIndex){
+        if (baseIndex + 2 < texts.size()) {
+            ta_1.setText(texts.get(baseIndex));
+            ta_2.setText(texts.get(baseIndex + 1));
+            ta_3.setText(texts.get(baseIndex + 2));
+        } else {
+            clearTextAreas();
+        }
+    }
+
+    public void clearTextAreas(){
+        ta_1.setText("Ingrese texto a copiar");
+        ta_2.setText("Ingrese texto a copiar");
+        ta_3.setText("Ingrese texto a copiar");
     }
 }
