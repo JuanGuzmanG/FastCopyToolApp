@@ -1,16 +1,12 @@
 package GUI;
 
 import Logic.list_obj;
-
 import javax.swing.*;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
-import javax.swing.event.ListSelectionEvent;
-import javax.swing.event.ListSelectionListener;
 import java.awt.*;
 import java.awt.datatransfer.Clipboard;
 import java.awt.datatransfer.StringSelection;
-import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.List;
@@ -123,15 +119,10 @@ public class Main extends JFrame{
         list_obj selected = list.getSelectedValue();
         if(selected != null){
             List<String> texts = selected.getCopies();
-            int intIndice = Integer.parseInt(index.getText());
-            int baseIndex = intIndice*3;
+            int baseIndex = Integer.parseInt(index.getText())*3;
 
             if(baseIndex+textAreaIndex<texts.size()){
-                switch (textAreaIndex){
-                    case 0 ->texts.set(baseIndex, ta_1.getText());
-                    case 1 ->texts.set(baseIndex+1, ta_2.getText());
-                    case 2 ->texts.set(baseIndex+2, ta_3.getText());
-                }
+                texts.set(baseIndex+textAreaIndex, getTextAreaContent(textAreaIndex));
             }
         }
     }
@@ -200,5 +191,13 @@ public class Main extends JFrame{
                 savechanges(textAreaIndex);
             }
         });
+    }
+    private String getTextAreaContent(int textAreaIndex){
+        return switch (textAreaIndex){
+            case 0 -> ta_1.getText();
+            case 1 -> ta_2.getText();
+            case 2 -> ta_3.getText();
+            default -> "";
+        };
     }
 }
