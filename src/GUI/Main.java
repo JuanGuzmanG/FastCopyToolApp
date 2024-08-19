@@ -18,48 +18,36 @@ import java.util.Objects;
 
 public class Main extends JFrame{
     public DefaultListModel<list_obj> listModel;
-    private JButton btn_next;
-    private JButton btn_back;
-    private JButton btn_addlist;
-    private JButton btn_copy3;
-    private JButton btn_clear3;
-    private JButton btn_copy2;
-    private JButton btn_clear2;
-    private JButton btn_copy1;
-    private JButton btn_clear1;
-    private JTextArea ta_1;
-    private JTextArea ta_2;
-    private JTextArea ta_3;
+    private JButton btn_next, btn_back;
+    private JButton btn_addlist,deleteSelectionListButton;
+    private JButton btn_copy1,btn_copy2,btn_copy3;
+    private JButton btn_clear1,btn_clear2,btn_clear3;
+    private JTextArea ta_1,ta_2,ta_3;
     private JPanel mainPanel;
+
     public JList<list_obj> list;
     private JLabel index;
-    private JButton deleteSelectionListButton;
     int cont = 0,cont1=0;
 
     public Main() {
         //Set the main panel
-    setContentPane(mainPanel);
+        setContentPane(mainPanel);
 
         //Create Model to add elements in list
-    listModel = new DefaultListModel<>();
-    list.setModel(listModel);
+        listModel = new DefaultListModel<>();
+        list.setModel(listModel);
 
         //Open AddList window
-    btn_addlist.addActionListener(new ActionListener() {
-            @Override
-        public void actionPerformed(ActionEvent e) {
+        btn_addlist.addActionListener(e ->{
             AddList addList = new AddList();
-            //Send Main to Addlist class
             addList.setMain(Main.this);
-            //adjusts the size of the windows to the size of it's components
             addList.pack();
             addList.setLocationRelativeTo(null);
             addList.setVisible(true);
             setVisible(false);
-        }
-    });
+        });
 
-            //Delete selected list;
+        //Delete selected list;
         deleteSelectionListButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -74,12 +62,12 @@ public class Main extends JFrame{
 
                     list.setSelectedIndex(list.getLastVisibleIndex());
                 }else {
-                    JOptionPane.showMessageDialog(mainPanel, "no hay mas listas para borrar", "advertencia", JOptionPane.OK_OPTION);
+                    JOptionPane.showMessageDialog(mainPanel, "No hay mas listas para borrar", "advertencia", JOptionPane.OK_OPTION);
                 }
             }
         });
 
-            //clear textArea
+        //clear textArea
         ActionListener clear = new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -96,6 +84,7 @@ public class Main extends JFrame{
         btn_clear2.addActionListener(clear);
         btn_clear3.addActionListener(clear);
 
+        //Update content when select a list
         list.addListSelectionListener(new ListSelectionListener() {
             @Override
             public void valueChanged(ListSelectionEvent e) {
@@ -119,7 +108,7 @@ public class Main extends JFrame{
 
 
 
-            //Index NextBtn
+        //Index NextBtn
         btn_next.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -157,7 +146,7 @@ public class Main extends JFrame{
             }
         });
 
-            //Index BackBtn
+        //Index BackBtn
         btn_back.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -190,7 +179,7 @@ public class Main extends JFrame{
             }
         });
 
-            //copy text
+        //copy text
         ActionListener copy = new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -202,7 +191,7 @@ public class Main extends JFrame{
                 } else if (e.getSource().equals(btn_copy3)) {
                     copytext = ta_3.getText();
                 }
-
+                //save in clipboard
                 Toolkit tk = Toolkit.getDefaultToolkit();
                 Clipboard cb = tk.getSystemClipboard();
                 cb.setContents(new StringSelection(copytext),null);
@@ -212,10 +201,11 @@ public class Main extends JFrame{
         btn_copy2.addActionListener(copy);
         btn_copy3.addActionListener(copy);
 
+        //save changes
         addDocumentlisteners();
     }
 
-        //AddList class
+    //AddList class
     public void agregarALista(String nombre) {
         cont++;
         if(Objects.equals(nombre, "New List")){
@@ -223,16 +213,16 @@ public class Main extends JFrame{
         }
         list_obj newElement = new list_obj(nombre);
         List<String> texts = new ArrayList<>();
-        for (int i=0;i<9;i++){
+        for (int i=0;i<9;i++,cont1++){
             texts.add("Ingresa datos aqui "+cont1);
-            cont1++;
         }
         newElement.setCopies(texts);
         listModel.addElement(newElement);
 
+        //when add list, select last list
         list.setSelectedIndex(list.getLastVisibleIndex());
     }
-
+    //show values to copy based on their index
     private void updateTx(){
         list_obj selected = list.getSelectedValue();
         if(selected!=null){
@@ -252,6 +242,7 @@ public class Main extends JFrame{
         }
     }
 
+    //save changes when update textfields
     private void addDocumentlisteners(){
         ta_1.getDocument().addDocumentListener(new DocumentListener(){
 
@@ -306,6 +297,7 @@ public class Main extends JFrame{
         });
     }
 
+    //class save changes in textfields
     private void savechanges(int textAreaIndex){
         list_obj selected = list.getSelectedValue();
         if(selected != null){
@@ -322,8 +314,4 @@ public class Main extends JFrame{
             }
         }
     }
-
-
-
-    //JJGG
 }
