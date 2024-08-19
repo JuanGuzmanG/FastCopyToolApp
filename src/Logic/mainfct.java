@@ -18,18 +18,18 @@ public class mainfct {
         JOptionPane.showMessageDialog(a, "Solo puede contener "+cantidad+" caracteres", "advertencia", JOptionPane.OK_OPTION);
     }
 
-    //
-    //         ooooooooooooooooooooooooooooooooooooooo
-    //         ooo oooooooooooooooooooooooo ooo    ooo
-    //         oo ooooooo   ooo          ooo o  oo   o
-    //         o oooooooo   ooo   ooooooooooo oo   ooo
-    //         o oooooooo   ooo   ooooooooooo o      o
-    //         o oooooooo   ooo   ooo    oooo oooooooo
-    //         o oooooooo   ooo   ooooo  oooo oooooooo
-    //         oo ooo       ooo          ooo ooooooooo
-    //         ooo oooooooooooooooooooooooo oooooooooo
-    //         ooooooooooooooooooooooooooooooooooooooo
-    //
+    /*
+    ooooooooooooooooooooooooooooooooooooooo
+    ooo oooooooooooooooooooooooo ooo     oo
+    oo ooooooo   ooo          ooo o  oo   o
+    o oooooooo   ooo   ooooooooooo oo   ooo
+    o oooooooo   ooo   ooooooooooo o      o
+    o oooooooo   ooo   ooo    oooo oooooooo
+    o oooooooo   ooo   ooooo  oooo oooooooo
+    oo ooo       ooo          ooo ooooooooo
+    ooo oooooooooooooooooooooooo oooooooooo
+    ooooooooooooooooooooooooooooooooooooooo
+    */
 
 }
 
