@@ -43,7 +43,7 @@ public class Main extends JFrame{
             setVisible(false);
         });
 
-        //Delete selected list;
+        //Remove selected list;
         deleteSelectionListButton.addActionListener(e -> deleteSelectedList());
 
         //clear textArea
