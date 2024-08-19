@@ -16,7 +16,7 @@ public class Main extends JFrame{
     public DefaultListModel<list_obj> listModel;
     private JButton btn_next, btn_back;
     private JButton btn_addlist,deleteSelectionListButton;
-    private JButton btn_copy1,btn_copy2,btn_copy3;
+    private JButton btn_copy1,btn_copy2,btn_copy3;//aa
     private JButton btn_clear1,btn_clear2,btn_clear3;
     private JTextArea ta_1,ta_2,ta_3;
     private JPanel mainPanel;
