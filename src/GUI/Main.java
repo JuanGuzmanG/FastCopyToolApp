@@ -48,24 +48,7 @@ public class Main extends JFrame{
         });
 
         //Delete selected list;
-        deleteSelectionListButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-
-                if(list.getSelectedIndex()!=-1){
-                    int valor = JOptionPane.showConfirmDialog(mainPanel, "esta seguro de elimnar la lista "+list.getSelectedValue().getName(),"Advertencia", JOptionPane.YES_NO_OPTION);
-
-                    if(valor==JOptionPane.YES_OPTION){
-                        JOptionPane.showMessageDialog(null,"Eliminado Correctamente","Eliminacion",JOptionPane.INFORMATION_MESSAGE);
-                        listModel.remove(list.getSelectedIndex());
-                    }
-
-                    list.setSelectedIndex(list.getLastVisibleIndex());
-                }else {
-                    JOptionPane.showMessageDialog(mainPanel, "No hay mas listas para borrar", "advertencia", JOptionPane.OK_OPTION);
-                }
-            }
-        });
+        deleteSelectionListButton.addActionListener(e -> deleteSelectedList());
 
         //clear textArea
         ActionListener clear = e -> {
@@ -84,7 +67,6 @@ public class Main extends JFrame{
         //Update content when select a list
         list.addListSelectionListener(e -> {
                 if(!e.getValueIsAdjusting()){
-                    updateTx();
                     try {
                         index.setText("0");
                         list_obj seleccionado = list.getSelectedValue();
@@ -107,7 +89,7 @@ public class Main extends JFrame{
         btn_copy2.addActionListener(e -> copy(ta_2.getText()));
         btn_copy3.addActionListener(e -> copy(ta_3.getText()));
 
-        //save changes
+        //save changes when textareas are updated
         addDocumentlisteners();
     }
 
@@ -128,78 +110,12 @@ public class Main extends JFrame{
         //when add list, select last list
         list.setSelectedIndex(list.getLastVisibleIndex());
     }
-    //show values to copy based on their index
-    private void updateTx(){
-        list_obj selected = list.getSelectedValue();
-        if(selected!=null){
-            List<String> texts = selected.getCopies();
-            int baseIndex = Integer.parseInt(index.getText())*3;
-
-            if(baseIndex + 2< texts.size()){
-                ta_1.setText(texts.get(baseIndex));
-                ta_2.setText(texts.get(baseIndex+1));
-                ta_3.setText(texts.get(baseIndex+2));
-            }else{
-                ta_1.setText("Ingrese texto a copiar");
-                ta_2.setText("Ingrese texto a copiar");
-                ta_3.setText("Ingrese texto a copiar");
-            }
-        }
-    }
 
     //save changes when update textfields
     private void addDocumentlisteners(){
-        ta_1.getDocument().addDocumentListener(new DocumentListener(){
-
-            @Override
-            public void insertUpdate(DocumentEvent e) {
-                savechanges(0);
-            }
-
-            @Override
-            public void removeUpdate(DocumentEvent e) {
-                savechanges(0);
-            }
-
-            @Override
-            public void changedUpdate(DocumentEvent e) {
-                savechanges(0);
-            }
-        });
-        ta_2.getDocument().addDocumentListener(new DocumentListener(){
-
-            @Override
-            public void insertUpdate(DocumentEvent e) {
-                savechanges(1);
-            }
-
-            @Override
-            public void removeUpdate(DocumentEvent e) {
-                savechanges(1);
-            }
-
-            @Override
-            public void changedUpdate(DocumentEvent e) {
-                savechanges(1);
-            }
-        });
-        ta_3.getDocument().addDocumentListener(new DocumentListener(){
-
-            @Override
-            public void insertUpdate(DocumentEvent e) {
-                savechanges(2);
-            }
-
-            @Override
-            public void removeUpdate(DocumentEvent e) {
-                savechanges(2);
-            }
-
-            @Override
-            public void changedUpdate(DocumentEvent e) {
-                savechanges(2);
-            }
-        });
+        addDocumentListener(ta_1,0);
+        addDocumentListener(ta_2,1);
+        addDocumentListener(ta_3,2);
     }
 
     //class save changes in textfields
@@ -251,5 +167,38 @@ public class Main extends JFrame{
     public void copy(String text){
         Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
         clipboard.setContents(new StringSelection(text),null);
+    }
+
+    public void deleteSelectedList(){
+        int selectedIndex = list.getSelectedIndex();
+        if (selectedIndex != -1){
+            int valor = JOptionPane.showConfirmDialog(mainPanel,"Are you sure to delete the list: "+list.getSelectedValue().getName() + "?", "Warning",JOptionPane.YES_NO_OPTION);
+            if (valor == JOptionPane.YES_OPTION) {
+                JOptionPane.showMessageDialog(null,"Removed Successfully", "Delete",JOptionPane.INFORMATION_MESSAGE);
+                listModel.remove(selectedIndex);
+            }
+            list.setSelectedIndex(list.getLastVisibleIndex());
+        } else {
+            JOptionPane.showMessageDialog(mainPanel,"there're no lists to delete");
+        }
+    }
+
+    private void addDocumentListener(JTextArea textArea, int textAreaIndex){
+        textArea.getDocument().addDocumentListener(new DocumentListener() {
+            @Override
+            public void insertUpdate(DocumentEvent e) {
+                savechanges(textAreaIndex);
+            }
+
+            @Override
+            public void removeUpdate(DocumentEvent e) {
+                savechanges(textAreaIndex);
+            }
+
+            @Override
+            public void changedUpdate(DocumentEvent e) {
+                savechanges(textAreaIndex);
+            }
+        });
     }
 }
