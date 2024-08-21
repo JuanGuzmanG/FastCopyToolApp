@@ -49,12 +49,12 @@ public class AddList extends JFrame{
                 String nameList = tf_newlistname.getText();
                     //give a name to new list
                 if(nameList.isEmpty()){
-                    JOptionPane.showMessageDialog(mainpanel_addlist,"El nombre no puede estar vacio","No null", JOptionPane.OK_OPTION);
+                    JOptionPane.showMessageDialog(mainpanel_addlist,"The name can't be null","No null", JOptionPane.OK_OPTION);
                 } else if(nameList.length()>20) {
                     // Call the error method
                     mainfct.ErrorLenght(AddList.this,20);
                 } else{
-                    main.agregarALista(tf_newlistname.getText());
+                    main.addList(tf_newlistname.getText());
                     main.setVisible(true);
                     setVisible(false);
                 }

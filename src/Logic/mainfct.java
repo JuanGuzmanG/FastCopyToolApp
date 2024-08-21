@@ -21,13 +21,12 @@ public class mainfct {
         clipboard.setContents(new StringSelection(text),null);
     }
     public static void ErrorLenght(JFrame a,int cantidad){
-        JOptionPane.showMessageDialog(a, "Solo puede contener "+cantidad+" caracteres", "advertencia", JOptionPane.OK_OPTION);
+        JOptionPane.showMessageDialog(a, "Can only have  "+cantidad+" characters", "Warning", JOptionPane.OK_OPTION);
     }
-
     /*
     ooooooooooooooooooooooooooooooooooooooo
     ooo oooooooooooooooooooooooo ooo     oo
-    oo ooooooo   ooo          ooo o  oo   o
+    oo ocotoso   ooo          ooo o  oo   o
     o oooooooo   ooo   ooooooooooo oo   ooo
     o oooooooo   ooo   ooooooooooo o      o
     o oooooooo   ooo   ooo    oooo oooooooo

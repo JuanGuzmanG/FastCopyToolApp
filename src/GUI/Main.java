@@ -89,15 +89,15 @@ public class Main extends JFrame{
     }
 
     //AddList class
-    public void agregarALista(String nombre) {
+    public void addList(String name) {
         cont++;
-        if(Objects.equals(nombre, "New List")){
-            nombre="New List "+cont;
+        if(Objects.equals(name, "New List")){
+            name="New List "+cont;
         }
-        list_obj newElement = new list_obj(nombre);
+        list_obj newElement = new list_obj(name);
         List<String> texts = new ArrayList<>();
         for (int i=0;i<9;i++,cont1++){
-            texts.add("Ingresa datos aqui "+cont1);
+            texts.add("add note "+cont1);
         }
         newElement.setCopies(texts);
         listModel.addElement(newElement);
@@ -137,9 +137,9 @@ public class Main extends JFrame{
     }
 
     public void clearTextAreas(){
-        ta_1.setText("Ingrese texto a copiar");
-        ta_2.setText("Ingrese texto a copiar");
-        ta_3.setText("Ingrese texto a copiar");
+        ta_1.setText("Insert text to copy");
+        ta_2.setText("Insert text to copy");
+        ta_3.setText("Insert text to copy");
     }
 
     public void updateIndex_TextAreas(int direction){
