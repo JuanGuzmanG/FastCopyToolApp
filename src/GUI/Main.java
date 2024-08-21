@@ -1,12 +1,11 @@
 package GUI;
 
 import Logic.list_obj;
+import Logic.mainfct;
+
 import javax.swing.*;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
-import java.awt.*;
-import java.awt.datatransfer.Clipboard;
-import java.awt.datatransfer.StringSelection;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.List;
@@ -81,9 +80,9 @@ public class Main extends JFrame{
         btn_back.addActionListener(e -> {updateIndex_TextAreas(-1);});
 
         //copy text
-        btn_copy1.addActionListener(e -> copy(ta_1.getText()));
-        btn_copy2.addActionListener(e -> copy(ta_2.getText()));
-        btn_copy3.addActionListener(e -> copy(ta_3.getText()));
+        btn_copy1.addActionListener(e -> mainfct.copy(ta_1.getText()));
+        btn_copy2.addActionListener(e -> mainfct.copy(ta_2.getText()));
+        btn_copy3.addActionListener(e -> mainfct.copy(ta_3.getText()));
 
         //save changes when textareas are updated
         addDocumentlisteners();
@@ -127,8 +126,6 @@ public class Main extends JFrame{
         }
     }
 
-    //nuevas clases
-
     public void setTextAreas(List<String> texts, int baseIndex){
         if (baseIndex + 2 < texts.size()) {
             ta_1.setText(texts.get(baseIndex));
@@ -155,10 +152,7 @@ public class Main extends JFrame{
         }
     }
 
-    public void copy(String text){
-        Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
-        clipboard.setContents(new StringSelection(text),null);
-    }
+
 
     public void deleteSelectedList(){
         int selectedIndex = list.getSelectedIndex();

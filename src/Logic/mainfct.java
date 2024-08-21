@@ -3,6 +3,9 @@ package Logic;
 import GUI.Main;
 
 import javax.swing.*;
+import java.awt.*;
+import java.awt.datatransfer.Clipboard;
+import java.awt.datatransfer.StringSelection;
 
 public class mainfct {
     public static void main(String[] args){
@@ -13,7 +16,10 @@ public class mainfct {
         gui.setLocationRelativeTo(null);
         gui.setVisible(true);
     }
-
+    public static void  copy(String text){
+        Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
+        clipboard.setContents(new StringSelection(text),null);
+    }
     public static void Error(JFrame a,int cantidad){
         JOptionPane.showMessageDialog(a, "Solo puede contener "+cantidad+" caracteres", "advertencia", JOptionPane.OK_OPTION);
     }
