@@ -22,7 +22,7 @@ public class Main extends JFrame{
 
     public JList<list_obj> list;
     private JLabel index;
-    int cont = 0,cont1=0;
+    int countlists =0;
 
     public Main() {
         //Set the main panel
@@ -90,14 +90,14 @@ public class Main extends JFrame{
 
     //AddList class
     public void addList(String name) {
-        cont++;
+        countlists++;
         if(Objects.equals(name, "New List")){
-            name="New List "+cont;
+            name="New List "+ countlists;
         }
         list_obj newElement = new list_obj(name);
         List<String> texts = new ArrayList<>();
-        for (int i=0;i<9;i++,cont1++){
-            texts.add("add note "+cont1);
+        for (int i=0;i<9;i++){
+            texts.add("add note");
         }
         newElement.setCopies(texts);
         listModel.addElement(newElement);
@@ -151,8 +151,6 @@ public class Main extends JFrame{
             setTextAreas(selected.getCopies(),newIndex*3);
         }
     }
-
-
 
     public void deleteSelectedList(){
         int selectedIndex = list.getSelectedIndex();
