@@ -52,7 +52,7 @@ public class AddList extends JFrame{
                     JOptionPane.showMessageDialog(mainpanel_addlist,"El nombre no puede estar vacio","No null", JOptionPane.OK_OPTION);
                 } else if(nameList.length()>20) {
                     // Call the error method
-                    mainfct.Error(AddList.this,20);
+                    mainfct.ErrorLenght(AddList.this,20);
                 } else{
                     main.agregarALista(tf_newlistname.getText());
                     main.setVisible(true);

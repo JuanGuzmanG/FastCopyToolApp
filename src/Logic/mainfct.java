@@ -20,7 +20,7 @@ public class mainfct {
         Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
         clipboard.setContents(new StringSelection(text),null);
     }
-    public static void Error(JFrame a,int cantidad){
+    public static void ErrorLenght(JFrame a,int cantidad){
         JOptionPane.showMessageDialog(a, "Solo puede contener "+cantidad+" caracteres", "advertencia", JOptionPane.OK_OPTION);
     }
 
