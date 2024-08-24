@@ -2,11 +2,14 @@ package GUI;
 
 import Logic.list_obj;
 import Logic.mainfct;
+import Persistence.data;
 
 import javax.swing.*;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
 import java.awt.event.ActionListener;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -30,6 +33,10 @@ public class Main extends JFrame{
 
         //Create Model to add elements in list
         listModel = new DefaultListModel<>();
+        list.setModel(listModel);
+
+        data persistence = new data();
+        listModel = persistence.loadData("listas.bin");
         list.setModel(listModel);
 
         //Open AddList window
@@ -86,6 +93,15 @@ public class Main extends JFrame{
 
         //save changes when textareas are updated
         addDocumentlisteners();
+
+        addWindowListener(new WindowAdapter() {
+            @Override
+            public void windowClosing(WindowEvent e){
+                data persistence = new data();
+                persistence.saveData(listModel, "listas.bin");
+                System.exit(0);
+            }
+        });
     }
 
     //AddList class

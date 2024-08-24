@@ -24,7 +24,6 @@ public class mainfct {
         JOptionPane.showMessageDialog(a, "Can only have  "+cantidad+" characters", "Warning", JOptionPane.OK_OPTION);
     }
 }
-
     /*
     ooooooooooooooooooooooooooooooooooooooo
     ooo oooooooooooooooooooooooo ooo     oo
