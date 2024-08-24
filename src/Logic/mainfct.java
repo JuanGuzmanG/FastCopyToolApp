@@ -23,6 +23,8 @@ public class mainfct {
     public static void ErrorLenght(JFrame a,int cantidad){
         JOptionPane.showMessageDialog(a, "Can only have  "+cantidad+" characters", "Warning", JOptionPane.OK_OPTION);
     }
+}
+
     /*
     ooooooooooooooooooooooooooooooooooooooo
     ooo oooooooooooooooooooooooo ooo     oo
@@ -36,5 +38,4 @@ public class mainfct {
     ooooooooooooooooooooooooooooooooooooooo
     */
 
-}
 
