@@ -29,7 +29,7 @@
         </constraints>
         <properties>
           <background color="-14145239"/>
-          <foreground color="-8880001"/>
+          <foreground color="-917506"/>
         </properties>
         <border type="empty" title="Lists" title-justification="2">
           <font/>
@@ -60,9 +60,11 @@
               <component id="dea0c" class="javax.swing.JList" binding="list">
                 <constraints/>
                 <properties>
-                  <background color="-15263718"/>
+                  <background color="-16777216"/>
                   <font name="Consolas" size="18" style="1"/>
-                  <foreground color="-986378"/>
+                  <foreground color="-788742"/>
+                  <selectionBackground color="-1"/>
+                  <selectionForeground color="-16777216"/>
                 </properties>
               </component>
             </children>
@@ -138,9 +140,9 @@
                   <component id="8a12a" class="javax.swing.JTextArea" binding="ta_3">
                     <constraints/>
                     <properties>
-                      <background color="-15263718"/>
+                      <background color="-16777216"/>
                       <font name="Consolas" size="18" style="1"/>
-                      <foreground color="-1777435"/>
+                      <foreground color="-788742"/>
                       <lineWrap value="true"/>
                     </properties>
                   </component>
@@ -191,9 +193,9 @@
                   <component id="b6ae8" class="javax.swing.JTextArea" binding="ta_2">
                     <constraints/>
                     <properties>
-                      <background color="-15263718"/>
+                      <background color="-16777216"/>
                       <font name="Consolas" size="18" style="1"/>
-                      <foreground color="-854792"/>
+                      <foreground color="-788742"/>
                       <lineWrap value="true"/>
                     </properties>
                   </component>
@@ -244,7 +246,7 @@
                   <component id="50863" class="javax.swing.JTextArea" binding="ta_1">
                     <constraints/>
                     <properties>
-                      <background color="-15263718"/>
+                      <background color="-16777216"/>
                       <font name="Consolas" size="18" style="1"/>
                       <foreground color="-788742"/>
                       <lineWrap value="true"/>
