@@ -6,3 +6,9 @@
 # Datasource local storage ignored files
 /dataSources/
 /dataSources.local.xml
+
+/.idea/discord.xml
+/.idea/vcs.xml
+/.idea/misc.xml
+/.idea/modules.xml
+/.idea/workspace.xml
