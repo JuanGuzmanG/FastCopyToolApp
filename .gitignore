@@ -28,8 +28,9 @@ bin/
 ### Mac OS ###
 .DS_Store
 
-/.idea/discord.xml
-/.idea/vcs.xml
-/.idea/misc.xml
-/.idea/modules.xml
-/.idea/workspace.xml
+### .idea ###
+!**/src/main/**/.idea/discord.xml
+!**/src/main/**/.idea/vcs.xml
+!**/src/main/**/.idea/misc.xml
+!**/src/main/**/.idea/modules.xml
+!**/src/main/**/.idea/workspace.xml
