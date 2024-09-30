@@ -9,14 +9,14 @@ import java.awt.datatransfer.StringSelection;
 
 public class mainfct {
     public static void main(String[] args){
-        //GUI creation and adjustments
+        //GUI creation andg adjustments
         Main gui = new Main();
         gui.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         gui.setSize(1000,600);
         gui.setLocationRelativeTo(null);
         gui.setVisible(true);
     }
-    public static void  copy(String text){
+    public static void copy(String text){
         Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
         clipboard.setContents(new StringSelection(text),null);
     }
