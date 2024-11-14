@@ -6,6 +6,7 @@ import Persistence.data;
 import javax.swing.*;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
+import java.awt.*;
 import java.awt.event.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -21,7 +22,11 @@ public class Main extends JFrame{
     private JPanel mainPanel;
 
     public JList<list_obj> list;
+    public JList<list_obj> titles_texts;
     private JLabel index;
+    private JTextField tf_title1;
+    private JTextField tf_title2;
+    private JTextField tf_title3;
     int countlists =0;
 
     public Main() {
@@ -53,10 +58,13 @@ public class Main extends JFrame{
         ActionListener clear = e -> {
             if (e.getSource().equals(btn_clear1)) {
                 ta_1.setText("");
+                tf_title1.setText("");
             } else if (e.getSource().equals(btn_clear2)) {
                 ta_2.setText("");
+                tf_title2.setText("");
             } else if (e.getSource().equals(btn_clear3)) {
                 ta_3.setText("");
+                tf_title3.setText("");
             }
         };
         btn_clear1.addActionListener(clear);
@@ -109,8 +117,10 @@ public class Main extends JFrame{
         }
         list_obj newElement = new list_obj(name);
         List<String> texts = new ArrayList<>();
+        List<String> titles = new ArrayList<>();
         for (int i=0;i<9;i++){
             texts.add("add note");
+            titles.add("title note");
         }
         newElement.setCopies(texts);
         listModel.addElement(newElement);
@@ -121,9 +131,9 @@ public class Main extends JFrame{
 
     //save changes when update textfields
     private void addDocumentlisteners(){
-        addDocumentListener(ta_1,0);
-        addDocumentListener(ta_2,1);
-        addDocumentListener(ta_3,2);
+        addDocumentListener(tf_title1,ta_1,0);
+        addDocumentListener(tf_title2,ta_2,1);
+        addDocumentListener(tf_title3,ta_3,2);
     }
 
     //class save changes in textfields
@@ -153,6 +163,9 @@ public class Main extends JFrame{
         ta_1.setText("Create a list and Insert text to copy");
         ta_2.setText("Create a list and Insert text to copy");
         ta_3.setText("Create a list and Insert text to copy");
+        tf_title1.setText("title 1");
+        tf_title2.setText("title 2");
+        tf_title3.setText("title 3");
     }
 
     public void updateIndex_TextAreas(int direction){
@@ -179,22 +192,28 @@ public class Main extends JFrame{
         }
     }
 
-    private void addDocumentListener(JTextArea textArea, int textAreaIndex){
+    private void addDocumentListener(JTextField tx_title, JTextArea textArea, int textAreaIndex){
         textArea.getDocument().addDocumentListener(new DocumentListener() {
             @Override
             public void insertUpdate(DocumentEvent e) {
                 savechanges(textAreaIndex);
             }
-
             @Override
             public void removeUpdate(DocumentEvent e) {
                 savechanges(textAreaIndex);
             }
-
             @Override
             public void changedUpdate(DocumentEvent e) {
                 savechanges(textAreaIndex);
             }
+        });
+        tx_title.getDocument().addDocumentListener(new DocumentListener() {
+            @Override
+            public void insertUpdate(DocumentEvent e) {savechanges(textAreaIndex);}
+            @Override
+            public void removeUpdate(DocumentEvent e) {savechanges(textAreaIndex);}
+            @Override
+            public void changedUpdate(DocumentEvent e) {savechanges(textAreaIndex);}
         });
     }
     private String getTextAreaContent(int textAreaIndex){

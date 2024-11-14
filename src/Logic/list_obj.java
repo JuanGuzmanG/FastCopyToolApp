@@ -10,6 +10,7 @@ public class list_obj implements Serializable {
     private static final long serialVersionUID =1L;
 
     private String name;
+    private List<String> titles;
     private List<String> copies;
 
     public list_obj(String name) {
@@ -35,6 +36,14 @@ public class list_obj implements Serializable {
 
     public String getCopy(int index){
         return copies.get(index);
+    }
+
+    public List<String> getTitles() {
+        return titles;
+    }
+
+    public void setTitles(List<String> titles) {
+        this.titles = titles;
     }
 
     @Override
