@@ -141,10 +141,16 @@ public class Main extends JFrame{
         list_obj selected = list.getSelectedValue();
         if(selected != null){
             List<String> texts = selected.getCopies();
+            List<String> titles = selected.getTitles();
             int baseIndex = Integer.parseInt(index.getText())*3;
 
+            //as long as "base" is less than 9
             if(baseIndex+textAreaIndex<texts.size()){
-                texts.set(baseIndex+textAreaIndex, getTextAreaContent(textAreaIndex));
+                texts.set(baseIndex + textAreaIndex,
+                        getTextAreaContent(textAreaIndex));
+
+                titles.set(baseIndex + textAreaIndex,
+                        getTitlesContent(textAreaIndex));
             }
         }
     }
@@ -221,6 +227,14 @@ public class Main extends JFrame{
             case 0 -> ta_1.getText();
             case 1 -> ta_2.getText();
             case 2 -> ta_3.getText();
+            default -> "";
+        };
+    }
+    private String getTitlesContent(int texttitleIndex){
+        return switch (texttitleIndex){
+            case 0 -> tf_title1.getText();
+            case 1 -> tf_title2.getText();
+            case 2 -> tf_title3.getText();
             default -> "";
         };
     }
