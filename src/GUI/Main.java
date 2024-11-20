@@ -22,7 +22,6 @@ public class Main extends JFrame{
     private JPanel mainPanel;
 
     public JList<list_obj> list;
-    public JList<list_obj> titles_texts;
     private JLabel index;
     private JTextField tf_title1;
     private JTextField tf_title2;
@@ -32,7 +31,6 @@ public class Main extends JFrame{
     public Main() {
         //Set the main panel
         setContentPane(mainPanel);
-
         //Create Model to add elements in list
         listModel = new DefaultListModel<>();
         list.setModel(listModel);
@@ -78,7 +76,9 @@ public class Main extends JFrame{
                         index.setText("0");
                         list_obj selected = list.getSelectedValue();
                         List<String> texts = selected.getCopies();
-                        setTextAreas(texts,0);
+                        List<String> titles = selected.getTitles();
+
+                        setTextAreas(texts,titles,0);
                     }catch (NullPointerException exception){
                         clearTextAreas();
                     }
@@ -123,6 +123,7 @@ public class Main extends JFrame{
             titles.add("title note");
         }
         newElement.setCopies(texts);
+        newElement.setTitles(titles);
         listModel.addElement(newElement);
 
         //when add list, select last list
@@ -148,18 +149,24 @@ public class Main extends JFrame{
             if(baseIndex+textAreaIndex<texts.size()){
                 texts.set(baseIndex + textAreaIndex,
                         getTextAreaContent(textAreaIndex));
-
+            }
+            if(baseIndex + textAreaIndex < titles.size()){
                 titles.set(baseIndex + textAreaIndex,
                         getTitlesContent(textAreaIndex));
             }
         }
     }
 
-    public void setTextAreas(List<String> texts, int baseIndex){
+    public void setTextAreas(List<String> texts,List<String> titles, int baseIndex){
+        List<String> listcopy = new ArrayList<>(titles);
         if (baseIndex + 2 < texts.size()) {
             ta_1.setText(texts.get(baseIndex));
             ta_2.setText(texts.get(baseIndex + 1));
             ta_3.setText(texts.get(baseIndex + 2));
+
+            tf_title1.setText(listcopy.get(baseIndex));
+            tf_title2.setText(listcopy.get(baseIndex + 1));
+            tf_title3.setText(listcopy.get(baseIndex + 2));
         } else {
             clearTextAreas();
         }
@@ -180,7 +187,7 @@ public class Main extends JFrame{
             int currentIndex = Integer.parseInt(index.getText());
             int newIndex = Math.max(0,Math.min(currentIndex+direction,2));
             index.setText(String.valueOf(newIndex));
-            setTextAreas(selected.getCopies(),newIndex*3);
+            setTextAreas(selected.getCopies(),selected.getTitles(),newIndex*3);
         }
     }
 

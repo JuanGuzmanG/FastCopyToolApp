@@ -18,10 +18,10 @@ public class list_obj implements Serializable {
         this.titles = new ArrayList<>(9);
         this.copies = new ArrayList<>(9);
 
-        for(int i=0; i<9;i++){
-            this.titles.add("title");
-            this.copies.add("add note");
-        }
+/*        for (int i = 0; i < 9; i++) {
+            this.titles.add("");
+            this.copies.add("");
+        }*/
     }
 
     public String getName() {
