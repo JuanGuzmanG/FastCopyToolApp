@@ -25,6 +25,7 @@ public class Main extends JFrame{
     private JTextField tf_title1;
     private JTextField tf_title2;
     private JTextField tf_title3;
+    private JButton btn_deleteAll;
     int countlists =0;
 
     public Main() {
