@@ -13,7 +13,7 @@ public class mainfct {
         Main gui = new Main();
         gui.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         gui.setSize(1000,600);
-        gui.setLocation(1800,100);
+        gui.setLocationRelativeTo(null);
         gui.setVisible(true);
     }
     public static void copy(String text){

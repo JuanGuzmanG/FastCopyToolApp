@@ -6,7 +6,6 @@ import Persistence.data;
 import javax.swing.*;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
-import java.awt.*;
 import java.awt.event.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -35,6 +34,31 @@ public class Main extends JFrame{
         listModel = new DefaultListModel<>();
         list.setModel(listModel);
 
+        //when click on a title or note it selects all texts
+        FocusAdapter selectAllListener = new FocusAdapter() {
+            @Override
+            public void focusGained(FocusEvent e) {((JTextField) e.getSource()).selectAll();
+            }
+        };
+        tf_title1.addFocusListener(selectAllListener);
+        tf_title2.addFocusListener(selectAllListener);
+        tf_title3.addFocusListener(selectAllListener);
+        FocusAdapter select = new FocusAdapter() {
+            @Override
+            public void focusGained(FocusEvent e) {
+                ((JTextArea) e.getSource()).selectAll();
+            }
+        };
+        ta_1.addFocusListener(select);
+        ta_2.addFocusListener(select);
+        ta_3.addFocusListener(select);
+
+        //remove border from textfields
+        tf_title1.setBorder(null);
+        tf_title2.setBorder(null);
+        tf_title3.setBorder(null);
+
+        //load data .bin
         data persistence = new data();
         listModel = persistence.loadData("lists.bin");
         list.setModel(listModel);
@@ -99,6 +123,7 @@ public class Main extends JFrame{
         //save changes when textareas are updated
         addDocumentlisteners();
 
+        //save data when Close program
         addWindowListener(new WindowAdapter() {
             @Override
             public void windowClosing(WindowEvent e){
@@ -157,6 +182,7 @@ public class Main extends JFrame{
         }
     }
 
+    //update the content of the textarea
     public void setTextAreas(List<String> texts,List<String> titles, int baseIndex){
         List<String> listcopy = new ArrayList<>(titles);
         if (baseIndex + 2 < texts.size()) {
@@ -172,6 +198,7 @@ public class Main extends JFrame{
         }
     }
 
+    //if textareas and titles are empty, fill with:
     public void clearTextAreas(){
         ta_1.setText("Create a list and Insert text to copy");
         ta_2.setText("Create a list and Insert text to copy");
@@ -181,6 +208,7 @@ public class Main extends JFrame{
         tf_title3.setText("title 3");
     }
 
+    //index control
     public void updateIndex_TextAreas(int direction){
         list_obj selected = list.getSelectedValue();
         if(selected!=null){
@@ -191,6 +219,7 @@ public class Main extends JFrame{
         }
     }
 
+    //delete selected list
     public void deleteSelectedList(){
         int selectedIndex = list.getSelectedIndex();
         if (selectedIndex != -1){
@@ -205,6 +234,7 @@ public class Main extends JFrame{
         }
     }
 
+    //detects when insert, remove, change JTEXTFIELD and JTEXTAREA
     private void addDocumentListener(JTextField tx_title, JTextArea textArea, int textAreaIndex){
         textArea.getDocument().addDocumentListener(new DocumentListener() {
             @Override
@@ -228,7 +258,12 @@ public class Main extends JFrame{
             @Override
             public void changedUpdate(DocumentEvent e) {savechanges(textAreaIndex);}
         });
+        //insertUpdate when text is inserted
+        //removeUpdate when text is delete, backspace key or clear button
+        //changedUpdate when applying a different format
     }
+
+
     private String getTextAreaContent(int textAreaIndex){
         return switch (textAreaIndex){
             case 0 -> ta_1.getText();

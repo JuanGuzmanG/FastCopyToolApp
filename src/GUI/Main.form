@@ -92,7 +92,7 @@
           <font name="Consolas" size="18" style="1"/>
           <foreground color="-526593"/>
         </properties>
-        <border type="empty" title="Saved Texts" title-justification="2">
+        <border type="empty" title-justification="2">
           <font/>
           <title-color color="-1050113"/>
           <color color="-16187163"/>
@@ -294,7 +294,14 @@
                 <preferred-size width="150" height="-1"/>
               </grid>
             </constraints>
-            <properties/>
+            <properties>
+              <background color="-14145239"/>
+              <caretColor color="-1"/>
+              <font name="Consolas" size="18" style="1"/>
+              <foreground color="-1031"/>
+              <horizontalAlignment value="0"/>
+              <margin top="2" left="6" bottom="2" right="6"/>
+            </properties>
           </component>
           <component id="1b785" class="javax.swing.JTextField" binding="tf_title2">
             <constraints>
@@ -302,7 +309,12 @@
                 <preferred-size width="150" height="-1"/>
               </grid>
             </constraints>
-            <properties/>
+            <properties>
+              <background color="-14145239"/>
+              <font name="Consolas" size="18" style="1"/>
+              <foreground color="-515"/>
+              <horizontalAlignment value="0"/>
+            </properties>
           </component>
           <component id="ba34b" class="javax.swing.JTextField" binding="tf_title3">
             <constraints>
@@ -310,7 +322,13 @@
                 <preferred-size width="150" height="-1"/>
               </grid>
             </constraints>
-            <properties/>
+            <properties>
+              <autoscrolls value="true"/>
+              <background color="-14145239"/>
+              <font name="Consolas" size="18" style="1"/>
+              <foreground color="-515"/>
+              <horizontalAlignment value="0"/>
+            </properties>
           </component>
         </children>
       </grid>
