@@ -26,6 +26,7 @@ public class Main extends JFrame{
     private JTextField tf_title2;
     private JTextField tf_title3;
     private JButton btn_deleteAll;
+    private JButton btn_DeleteTexts;
     int countlists =0;
 
     public Main() {
@@ -131,6 +132,26 @@ public class Main extends JFrame{
                 data persistence = new data();
                 persistence.saveData(listModel, "lists.bin");
                 System.exit(0);
+            }
+        });
+
+        //delete texts
+        btn_DeleteTexts.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                List<String> texts = new ArrayList<String>();
+                List<String> titles = new ArrayList<String>();
+                list.getSelectedValue().setTitles(titles);
+                list.getSelectedValue().setCopies(texts);
+                setTextAreas(texts,titles,0);
+            }
+        });
+        btn_deleteAll.addActionListener(new ActionListener()
+        {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                listModel.clear();
+                list.setModel(listModel);
             }
         });
     }
