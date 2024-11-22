@@ -27,11 +27,16 @@ public class Main extends JFrame{
     private JTextField tf_title3;
     private JButton btn_deleteAll;
     private JButton btn_DeleteTexts;
+    private JButton btn_help;
     int countlists =0;
 
+    ImageIcon icon = new ImageIcon(Main.class.getResource("/resource/logo.png"));
+
     public Main() {
+
         //Set the main panel
         setContentPane(mainPanel);
+
         //Create Model to add elements in list
         listModel = new DefaultListModel<>();
         list.setModel(listModel);
@@ -70,7 +75,9 @@ public class Main extends JFrame{
             AddList addList = new AddList();
             addList.setMain(Main.this);
             addList.pack();
-            addList.setLocationRelativeTo(null);
+            addList.setLocationRelativeTo(mainPanel);
+            addList.setTitle("ADD LIST");
+            addList.setIconImage(icon.getImage());
             addList.setVisible(true);
             setVisible(false);
         });
@@ -139,19 +146,44 @@ public class Main extends JFrame{
         btn_DeleteTexts.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                List<String> texts = new ArrayList<String>();
-                List<String> titles = new ArrayList<String>();
-                list.getSelectedValue().setTitles(titles);
-                list.getSelectedValue().setCopies(texts);
-                setTextAreas(texts,titles,0);
+                if (list.getSelectedValue() != null) {
+                    int valor = JOptionPane.showConfirmDialog(mainPanel,"Are you sure to delete the texts from: "+list.getSelectedValue().getName() + "?", "Warning",JOptionPane.YES_NO_OPTION);
+
+                    if(valor == JOptionPane.YES_OPTION){
+                        JOptionPane.showMessageDialog(mainPanel,"Removed Successfully", "Delete",JOptionPane.INFORMATION_MESSAGE,icon);
+                        List<String> texts = new ArrayList<String>();
+                        List<String> titles = new ArrayList<String>();
+                        list.getSelectedValue().setTitles(titles);
+                        list.getSelectedValue().setCopies(texts);
+                        setTextAreas(texts,titles,0);
+                    }else{
+                        JOptionPane.showMessageDialog(mainPanel,"Canceled", "Warning",JOptionPane.INFORMATION_MESSAGE,icon);
+                    }
+                }else{
+                    JOptionPane.showMessageDialog(mainPanel,"Nothing to delete", "Error",JOptionPane.ERROR_MESSAGE);
+                }
+
             }
         });
         btn_deleteAll.addActionListener(new ActionListener()
         {
             @Override
             public void actionPerformed(ActionEvent e) {
-                listModel.clear();
-                list.setModel(listModel);
+                if (list.getSelectedValue() != null) {
+                    listModel.clear();
+                    list.setModel(listModel);
+                    JOptionPane.showMessageDialog(mainPanel,"Deleted Successfully", "Delete",JOptionPane.INFORMATION_MESSAGE, icon);
+                }else {
+                    JOptionPane.showMessageDialog(mainPanel,"Nothing to delete", "Error",JOptionPane.ERROR_MESSAGE);
+                }
+            }
+        });
+        btn_help.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                JOptionPane.showMessageDialog(mainPanel,"1. create a list with the green add list button\n"+
+                        "2. where it says enter the text to copy enter the texts you want to save\n"+
+                        "3. You can add a title to each text if you wish", "Help",JOptionPane.INFORMATION_MESSAGE);
             }
         });
     }
@@ -166,8 +198,8 @@ public class Main extends JFrame{
         List<String> texts = new ArrayList<>();
         List<String> titles = new ArrayList<>();
         for (int i=0;i<9;i++){
-            texts.add("add note");
-            titles.add("title note");
+            texts.add("add the text");
+            titles.add("title");
         }
         newElement.setCopies(texts);
         newElement.setTitles(titles);
@@ -247,12 +279,12 @@ public class Main extends JFrame{
         if (selectedIndex != -1){
             int valor = JOptionPane.showConfirmDialog(mainPanel,"Are you sure to delete the list: "+list.getSelectedValue().getName() + "?", "Warning",JOptionPane.YES_NO_OPTION);
             if (valor == JOptionPane.YES_OPTION) {
-                JOptionPane.showMessageDialog(null,"Removed Successfully", "Delete",JOptionPane.INFORMATION_MESSAGE);
+                JOptionPane.showMessageDialog(mainPanel,"Removed Successfully", "Delete",JOptionPane.INFORMATION_MESSAGE,icon);
                 listModel.remove(selectedIndex);
             }
             list.setSelectedIndex(list.getLastVisibleIndex());
         } else {
-            JOptionPane.showMessageDialog(mainPanel,"there're no lists to delete");
+            JOptionPane.showMessageDialog(mainPanel,"there're no lists to delete","Error",JOptionPane.ERROR_MESSAGE);
         }
     }
 

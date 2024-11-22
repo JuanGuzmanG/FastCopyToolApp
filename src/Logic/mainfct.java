@@ -12,9 +12,11 @@ public class mainfct {
         //GUI creation andg adjustments
         Main gui = new Main();
         gui.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        gui.setSize(1000,600);
+        gui.setSize(1000,700);
         gui.setLocationRelativeTo(null);
         gui.setVisible(true);
+        gui.setTitle("FAST COPY TOOL");
+        gui.setIconImage(Toolkit.getDefaultToolkit().getImage(Main.class.getResource("/resource/logo.png")));
     }
     public static void copy(String text){
         Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
