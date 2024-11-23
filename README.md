@@ -1,8 +1,8 @@
 # Documentation
 
-###Introdution
+### Introdution
 
-###User Guide: Step by Step
+### User Guide: Step by Step
 
 #
 
