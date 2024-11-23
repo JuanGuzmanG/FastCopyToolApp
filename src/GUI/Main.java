@@ -28,7 +28,7 @@ public class Main extends JFrame{
     private JButton btn_deleteAll;
     private JButton btn_DeleteTexts;
     private JButton btn_help;
-    int countlists =0;
+    int countlists=0;
 
     ImageIcon icon = new ImageIcon(Main.class.getResource("/resource/logo.png"));
 
@@ -185,9 +185,13 @@ public class Main extends JFrame{
         btn_help.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                JOptionPane.showMessageDialog(mainPanel,"1. create a list with the green add list button. \n" +
-                        "2. enter the texts you want to save in the right boxes. \n" +
-                        "3. You can add a title to each text if you wish. \n\nNote: each list has nine possible texts,\n the index at the bottom informs the position from 0 to 2.",
+                JOptionPane.showMessageDialog(mainPanel, """
+                                1. create a list with the green add list button.\s
+                                2. enter the texts you want to save in the right boxes.\s
+                                3. You can add a title to each text if you wish.\s
+                                
+                                Note: each list has nine possible texts,
+                                 the index at the bottom informs the position from 0 to 2.""",
                         "Help",JOptionPane.INFORMATION_MESSAGE);
             }
         });
@@ -322,7 +326,7 @@ public class Main extends JFrame{
         //changedUpdate when applying a different format
     }
 
-
+    //add the texts and titles from the list to textareas
     private String getTextAreaContent(int textAreaIndex){
         return switch (textAreaIndex){
             case 0 -> ta_1.getText();

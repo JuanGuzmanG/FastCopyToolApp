@@ -9,7 +9,7 @@ import java.awt.datatransfer.StringSelection;
 
 public class mainfct {
     public static void main(String[] args){
-        //GUI creation andg adjustments
+        //GUI creation
         Main gui = new Main();
         gui.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         gui.setSize(1000,700);

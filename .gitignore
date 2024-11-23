@@ -29,6 +29,7 @@ bin/
 .DS_Store
 
 ### .idea ###
+/.idea
 /.idea/discord.xml
 /.idea/vcs.xml
 /.idea/misc.xml

@@ -1,7 +1,6 @@
 package GUI;
 
 import Logic.mainfct;
-
 import javax.swing.*;
 import java.awt.event.*;
 
@@ -10,7 +9,6 @@ public class AddList extends JFrame{
     private JTextField tf_newlistname;
     private JButton btn_listnamesave;
     private Main main;
-    int cont = 1;
 
     public AddList(){
             //open mainpanel_addlist as main panel
@@ -32,6 +30,7 @@ public class AddList extends JFrame{
                 tf_newlistname.selectAll();
             }
         });
+
             //when press "enter" key its saved automatically
         tf_newlistname.addKeyListener(new KeyAdapter() {
             @Override
