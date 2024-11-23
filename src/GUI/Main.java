@@ -169,7 +169,7 @@ public class Main extends JFrame{
         {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if (list.getSelectedValue() != null) {
+                if (list.getLastVisibleIndex() > 0) {
                     listModel.clear();
                     list.setModel(listModel);
                     JOptionPane.showMessageDialog(mainPanel,"Deleted Successfully", "Delete",JOptionPane.INFORMATION_MESSAGE, icon);
