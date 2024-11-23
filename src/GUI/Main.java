@@ -165,19 +165,23 @@ public class Main extends JFrame{
 
             }
         });
+
+        //delete all lists
         btn_deleteAll.addActionListener(new ActionListener()
         {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if (list.getLastVisibleIndex() > 0) {
+                if (listModel.getSize() > 0) {
                     listModel.clear();
                     list.setModel(listModel);
                     JOptionPane.showMessageDialog(mainPanel,"Deleted Successfully", "Delete",JOptionPane.INFORMATION_MESSAGE, icon);
                 }else {
-                    JOptionPane.showMessageDialog(mainPanel,"Nothing to delete", "Error",JOptionPane.ERROR_MESSAGE);
+                    JOptionPane.showMessageDialog(mainPanel,"No list to delete", "Error",JOptionPane.ERROR_MESSAGE);
                 }
             }
         });
+
+        //Help Button
         btn_help.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -255,9 +259,9 @@ public class Main extends JFrame{
 
     //if textareas and titles are empty, fill with:
     public void clearTextAreas(){
-        ta_1.setText("Create a list and Insert text to copy");
-        ta_2.setText("Create a list and Insert text to copy");
-        ta_3.setText("Create a list and Insert text to copy");
+        ta_1.setText("Insert text to copy");
+        ta_2.setText("Insert text to copy");
+        ta_3.setText("Insert text to copy");
         tf_title1.setText("title 1");
         tf_title2.setText("title 2");
         tf_title3.setText("title 3");

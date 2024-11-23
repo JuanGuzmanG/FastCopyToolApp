@@ -8,6 +8,7 @@
     <properties>
       <background color="-14145239"/>
       <enabled value="true"/>
+      <font name="JetBrains Mono" size="14" style="1"/>
       <foreground color="-16579837"/>
     </properties>
     <border type="none"/>
@@ -41,17 +42,18 @@
         <children>
           <component id="74aa5" class="javax.swing.JButton" binding="btn_addlist">
             <constraints>
-              <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="2" fill="1" indent="0" use-parent-layout="false"/>
+              <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
-              <background color="-16711935"/>
+              <background color="-16742399"/>
               <focusPainted value="false"/>
-              <font name="Consolas" size="14" style="1"/>
-              <foreground color="-16316922"/>
+              <focusable value="false"/>
+              <font name="JetBrains Mono" size="16" style="1"/>
+              <foreground color="-1"/>
               <label value="Add List"/>
               <text value="Add List"/>
-              <verticalAlignment value="3"/>
-              <verticalTextPosition value="3"/>
+              <verticalAlignment value="0"/>
+              <verticalTextPosition value="0"/>
             </properties>
           </component>
           <scrollpane id="32509">
@@ -81,11 +83,11 @@
               <grid row="3" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="2" fill="1" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
-              <background color="-1"/>
+              <background color="-6158592"/>
               <focusPainted value="false"/>
-              <focusable value="true"/>
-              <font name="Consolas" size="14" style="1"/>
-              <foreground color="-16250872"/>
+              <focusable value="false"/>
+              <font name="JetBrains Mono" size="14" style="1"/>
+              <foreground color="-1"/>
               <text value="Delete Selection List"/>
               <verticalAlignment value="3"/>
               <verticalTextPosition value="3"/>
@@ -96,10 +98,10 @@
               <grid row="5" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="2" fill="1" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
-              <background color="-60928"/>
+              <background color="-6158592"/>
               <focusPainted value="false"/>
               <focusable value="true"/>
-              <font name="Consolas" size="14" style="1"/>
+              <font name="JetBrains Mono" size="14" style="1"/>
               <foreground color="-1"/>
               <text value="Delete All Lists"/>
               <verticalAlignment value="3"/>
@@ -121,10 +123,10 @@
               <grid row="4" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="2" fill="1" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
-              <background color="-60928"/>
+              <background color="-6158592"/>
               <focusPainted value="false"/>
               <focusable value="true"/>
-              <font name="Consolas" size="14" style="1"/>
+              <font name="JetBrains Mono" size="14" style="1"/>
               <foreground color="-1"/>
               <text value="Delete all texts from list"/>
               <verticalAlignment value="3"/>
@@ -217,11 +219,11 @@
                 </constraints>
                 <properties>
                   <autoscrolls value="false"/>
-                  <background color="-16732673"/>
+                  <background color="-16752216"/>
                   <enabled value="true"/>
                   <focusPainted value="false"/>
-                  <font name="Consolas" size="16" style="1"/>
-                  <foreground color="-16316665"/>
+                  <font name="JetBrains Mono" size="14" style="1"/>
+                  <foreground color="-1"/>
                   <text value="COPY"/>
                   <verticalAlignment value="3"/>
                   <verticalTextPosition value="3"/>
@@ -232,10 +234,10 @@
                   <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="10" fill="0" indent="0" use-parent-layout="false"/>
                 </constraints>
                 <properties>
-                  <background color="-1"/>
+                  <background color="-6158592"/>
                   <focusPainted value="false"/>
-                  <font name="Consolas" size="16" style="1"/>
-                  <foreground color="-16316665"/>
+                  <font name="JetBrains Mono" size="14" style="1"/>
+                  <foreground color="-1"/>
                   <horizontalAlignment value="0"/>
                   <text value="CLEAR"/>
                   <verticalAlignment value="3"/>
@@ -280,10 +282,10 @@
                   <grid row="1" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="2" fill="1" indent="0" use-parent-layout="false"/>
                 </constraints>
                 <properties>
-                  <background color="-16732673"/>
+                  <background color="-16752216"/>
                   <focusPainted value="false"/>
-                  <font name="Consolas" size="16" style="1"/>
-                  <foreground color="-16448251"/>
+                  <font name="JetBrains Mono" size="14" style="1"/>
+                  <foreground color="-1"/>
                   <text value="COPY"/>
                   <verticalAlignment value="3"/>
                   <verticalTextPosition value="3"/>
@@ -294,11 +296,11 @@
                   <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="10" fill="0" indent="0" use-parent-layout="false"/>
                 </constraints>
                 <properties>
-                  <background color="-1"/>
+                  <background color="-6158592"/>
                   <enabled value="true"/>
                   <focusPainted value="false"/>
-                  <font name="Consolas" size="16" style="1"/>
-                  <foreground color="-16316665"/>
+                  <font name="JetBrains Mono" size="14" style="1"/>
+                  <foreground color="-1"/>
                   <horizontalAlignment value="0"/>
                   <text value="CLEAR"/>
                   <verticalAlignment value="3"/>
@@ -345,10 +347,10 @@
                   <grid row="1" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="2" fill="1" indent="0" use-parent-layout="false"/>
                 </constraints>
                 <properties>
-                  <background color="-16732673"/>
+                  <background color="-16752216"/>
                   <focusPainted value="false"/>
-                  <font name="Consolas" size="16" style="1"/>
-                  <foreground color="-16316665"/>
+                  <font name="JetBrains Mono" size="14" style="1"/>
+                  <foreground color="-1"/>
                   <text value="COPY"/>
                   <verticalAlignment value="3"/>
                   <verticalTextPosition value="3"/>
@@ -359,15 +361,15 @@
                   <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="10" fill="0" indent="0" use-parent-layout="false"/>
                 </constraints>
                 <properties>
-                  <background color="-1"/>
+                  <background color="-6158592"/>
                   <borderPainted value="true"/>
                   <contentAreaFilled value="true"/>
                   <defaultCapable value="true"/>
                   <focusCycleRoot value="false"/>
                   <focusPainted value="false"/>
                   <focusTraversalPolicyProvider value="false"/>
-                  <font name="Consolas" size="16" style="1"/>
-                  <foreground color="-16316665"/>
+                  <font name="JetBrains Mono" size="14" style="1"/>
+                  <foreground color="-1"/>
                   <horizontalAlignment value="0"/>
                   <text value="CLEAR"/>
                   <verticalAlignment value="3"/>
@@ -435,12 +437,22 @@
           <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <background color="-1184275"/>
+          <background color="-16714753"/>
+          <enabled value="true"/>
           <focusPainted value="false"/>
           <font size="13"/>
-          <foreground color="-16316665"/>
-          <label value="Help"/>
-          <text value="Help"/>
+          <foreground color="-16316922"/>
+          <label value="HELP"/>
+          <text value="HELP"/>
+        </properties>
+      </component>
+      <component id="bfc0b" class="javax.swing.JLabel">
+        <constraints>
+          <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <icon value="resource/logo_white.png"/>
+          <text value=""/>
         </properties>
       </component>
     </children>
