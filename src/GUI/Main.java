@@ -181,9 +181,10 @@ public class Main extends JFrame{
         btn_help.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                JOptionPane.showMessageDialog(mainPanel,"1. create a list with the green add list button\n"+
-                        "2. where it says enter the text to copy enter the texts you want to save\n"+
-                        "3. You can add a title to each text if you wish", "Help",JOptionPane.INFORMATION_MESSAGE);
+                JOptionPane.showMessageDialog(mainPanel,"1. create a list with the green add list button. \n" +
+                        "2. enter the texts you want to save in the correct boxes. \n" +
+                        "3. You can add a title to each text if you wish. \nNote: each list has nine possible texts, the index at the bottom informs the position from 0 to 2",
+                        "Help",JOptionPane.INFORMATION_MESSAGE);
             }
         });
     }
