@@ -1,6 +1,6 @@
 # FastCopyTool - Documentation
 
-## [Download Github](https://github.com/JuanGuzmanG/FastCopyToolApp/archive/refs/heads/main.zip)
+## [Download in Github](https://github.com/JuanGuzmanG/FastCopyToolApp/archive/refs/heads/main.zip)
 to use, it is recommended to save the folder in “Documents” or a folder that allows reading and writing because it creates a .bin file that stores the data of the lists and texts that you save. you can also create a shortcut.
 
 ### About 
