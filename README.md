@@ -12,4 +12,5 @@ Fast Copy Tool is a simple program that saves texts so you can easily copy them 
 4. Copy the desired text with the "copy" button.
 5. You can clear the text area with the "clear" button.
 6. Lists and texts are saved automatically, there is no problem closing the software.
-   
+
+![]("/resource/image1.png")
