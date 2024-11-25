@@ -17,4 +17,10 @@ Fast Copy Tool is a simple program that saves texts so you can easily copy them 
 !["main"](src/resource/image1.PNG)
 
 ## Addlist window
-!["addlist"](src/resource/image2.png)
+!["addlist"](src/resource/image2.PNG)
+
+## List 1 created
+!["create"](src/resource/image3.PNG)
+
+## List 2 created
+!["list2"](src/resource/image4.PNG)
