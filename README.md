@@ -17,8 +17,8 @@ Fast Copy Tool is a simple program that saves texts so you can easily copy them 
 ## Objective
 - Save different texts which can be easily copied when needed.
   ### Secondary objetives 
-  1. Separate texts by lists for better order
-  2. Put titles to identify what the text contains
+  - Separate texts by lists for better order
+  - Put titles to identify what the text contains
 
 ## Main window
 !["main"](src/resource/image1.PNG)
