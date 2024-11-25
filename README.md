@@ -1,6 +1,6 @@
 # FastCopyTool - Documentation
 
-## [Download Github](FastCopyToolApp/FastCopyTool/fastcopytool.exe)
+## [Download Github](FastCopyTool/fastcopytool.exe)
 To use, it is recommended to save the .exe in a folder in the “Documents” folder or a folder that allows reading and writing because it creates a .bin file that stores the data of the lists and texts you save.
 
 ### About 
