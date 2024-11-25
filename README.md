@@ -1,6 +1,6 @@
 # FastCopyTool - Documentation
 
-## [Download](https://drive.google.com/drive/folders/1ameeTgLBTDGyCeiQVf2dIQocpnfZYPDv?usp=sharing)
+## [Download](INSTALLER/FastCopyTool_Installer.exe)
 
 ### About 
 Fast Copy Tool is a simple program that saves texts so you can easily copy them later.
