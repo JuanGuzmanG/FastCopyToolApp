@@ -1,7 +1,7 @@
 # FastCopyTool - Documentation
 
-## [Download Github](INSTALLER.rar)
-## [Download GoogleDrive](https://drive.google.com/file/d/13UqFmlN93Xj5ag7gus3KawghWgq1y5X9/view?usp=sharing)
+## [Download Github](FastCopyTool/fastcopytool.exe)
+To use, it is recommended to save the .exe in a folder in the “Documents” folder or a folder that allows reading and writing because it creates a .bin file that stores the data of the lists and texts you save.
 
 ### About 
 Fast Copy Tool is a simple program that saves texts so you can easily copy them later.
