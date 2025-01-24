@@ -12,7 +12,8 @@ Fast Copy Tool is a simple program that saves texts, create lists. you can easil
 3. If you want, you can add titles to each text.
 4. Copy the desired text with the "copy" button.
 5. You can clear the text area with the "clear" button.
-6. Lists and texts are saved automatically, there is no problem closing the software.
+6. Lists and texts are saved automatically, there is no problem closing the software or shut out your computer.
+7. You can save 9 blocks of texts per list, navigate between them with the index.
 
 ## Objective
 - Save different texts which can be easily copied when needed.
