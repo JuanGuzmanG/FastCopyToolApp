@@ -4,7 +4,7 @@
 to use, it is recommended to save the folder in “Documents” or a folder that allows reading and writing because it creates a .bin file that stores the data of the lists and texts that you save. you can also create a shortcut.
 
 ### About 
-Fast Copy Tool is a simple program that saves texts so you can easily copy them later.
+Fast Copy Tool is a simple program that saves texts, create lists. you can easily copy them later.
 
 ### User Guide: Step by Step
 1. Create a list with the "add list" button and add a name to the list or use the default one.
