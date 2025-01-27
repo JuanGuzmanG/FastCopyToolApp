@@ -143,9 +143,7 @@ public class Main extends JFrame{
         });
 
         //delete texts
-        btn_DeleteTexts.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
+        btn_DeleteTexts.addActionListener(e -> {
                 if (list.getSelectedValue() != null) {
                     int valor = JOptionPane.showConfirmDialog(mainPanel,"Are you sure to delete the texts from: "+list.getSelectedValue().getName() + "?", "Warning",JOptionPane.YES_NO_OPTION);
 
@@ -162,15 +160,10 @@ public class Main extends JFrame{
                 }else{
                     JOptionPane.showMessageDialog(mainPanel,"Nothing to delete", "Error",JOptionPane.ERROR_MESSAGE);
                 }
-
-            }
         });
 
         //delete all lists
-        btn_deleteAll.addActionListener(new ActionListener()
-        {
-            @Override
-            public void actionPerformed(ActionEvent e) {
+        btn_deleteAll.addActionListener(e ->{
                 if (listModel.getSize() > 0) {
                     listModel.clear();
                     list.setModel(listModel);
@@ -178,22 +171,18 @@ public class Main extends JFrame{
                 }else {
                     JOptionPane.showMessageDialog(mainPanel,"No list to delete", "Error",JOptionPane.ERROR_MESSAGE);
                 }
-            }
         });
 
         //Help Button
-        btn_help.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                JOptionPane.showMessageDialog(mainPanel, """
-                                1. create a list with the green add list button.\s
-                                2. enter the texts you want to save in the right boxes.\s
-                                3. You can add a title to each text if you wish.\s
-                                
-                                Note: each list has nine possible texts,
-                                 the index at the bottom informs the position from 0 to 2.""",
-                        "Help",JOptionPane.INFORMATION_MESSAGE);
-            }
+        btn_help.addActionListener(e ->{
+            JOptionPane.showMessageDialog(mainPanel, """
+                            1. create a list with the green add list button.\s
+                            2. enter the texts you want to save in the right boxes.\s
+                            3. You can add a title to each text if you wish.\s
+                            
+                            Note: each list has nine possible texts,
+                             the index at the bottom informs the position from 0 to 2.""",
+                    "Help",JOptionPane.INFORMATION_MESSAGE);
         });
     }
 
