@@ -7,23 +7,16 @@ import java.awt.*;
 import java.awt.datatransfer.Clipboard;
 import java.awt.datatransfer.StringSelection;
 
-public class mainfct {
+public class MainFCT {
     public static void main(String[] args){
         //GUI creation
         Main gui = new Main();
         gui.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        gui.setSize(1000,700);
+        gui.setSize(1000,680);
         gui.setLocationRelativeTo(null);
         gui.setVisible(true);
         gui.setTitle("FAST COPY TOOL");
         gui.setIconImage(Toolkit.getDefaultToolkit().getImage(Main.class.getResource("/resource/logo.png")));
-    }
-    public static void copy(String text){
-        Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
-        clipboard.setContents(new StringSelection(text),null);
-    }
-    public static void ErrorLenght(JFrame a,int cantidad){
-        JOptionPane.showMessageDialog(a, "Can only have  "+cantidad+" characters", "Warning", JOptionPane.OK_OPTION);
     }
 }
     /*

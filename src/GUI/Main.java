@@ -1,7 +1,7 @@
 package GUI;
 
-import Logic.list_obj;
-import Logic.mainfct;
+import Logic.ListObj;
+import Logic.Utils;
 import Persistence.data;
 import javax.swing.*;
 import javax.swing.event.DocumentEvent;
@@ -12,7 +12,7 @@ import java.util.List;
 import java.util.Objects;
 
 public class Main extends JFrame{
-    public DefaultListModel<list_obj> listModel;
+    public DefaultListModel<ListObj> listModel;
     private JButton btn_next, btn_back;
     private JButton btn_addlist,deleteSelectionListButton;
     private JButton btn_copy1,btn_copy2,btn_copy3;
@@ -20,7 +20,7 @@ public class Main extends JFrame{
     private JTextArea ta_1,ta_2,ta_3;
     private JPanel mainPanel;
 
-    public JList<list_obj> list;
+    public JList<ListObj> list;
     private JLabel index;
     private JTextField tf_title1;
     private JTextField tf_title2;
@@ -107,7 +107,7 @@ public class Main extends JFrame{
                 if(!e.getValueIsAdjusting()){
                     try {
                         index.setText("0");
-                        list_obj selected = list.getSelectedValue();
+                        ListObj selected = list.getSelectedValue();
                         List<String> texts = selected.getCopies();
                         List<String> titles = selected.getTitles();
 
@@ -119,18 +119,20 @@ public class Main extends JFrame{
         });
 
         //Index NextBtn
-        btn_next.addActionListener( e -> {updateIndex_TextAreas(1);});
+        btn_next.addActionListener( e -> {
+            updateIndexTextAreas(1);});
 
         //Index BackBtn
-        btn_back.addActionListener(e -> {updateIndex_TextAreas(-1);});
+        btn_back.addActionListener(e -> {
+            updateIndexTextAreas(-1);});
 
         //copy text
-        btn_copy1.addActionListener(e -> mainfct.copy(ta_1.getText()));
-        btn_copy2.addActionListener(e -> mainfct.copy(ta_2.getText()));
-        btn_copy3.addActionListener(e -> mainfct.copy(ta_3.getText()));
+        btn_copy1.addActionListener(e -> Utils.copy(ta_1.getText()));
+        btn_copy2.addActionListener(e -> Utils.copy(ta_2.getText()));
+        btn_copy3.addActionListener(e -> Utils.copy(ta_3.getText()));
 
         //save changes when textareas are updated
-        addDocumentlisteners();
+        addDocumentListeners();
 
         //save data when Close program
         addWindowListener(new WindowAdapter() {
@@ -164,13 +166,18 @@ public class Main extends JFrame{
 
         //delete all lists
         btn_deleteAll.addActionListener(e ->{
-                if (listModel.getSize() > 0) {
+            if (listModel.getSize() > 0) {
+                int option = JOptionPane.showConfirmDialog(mainPanel,"DELETE ALL LISTS, Are you sure?","Warning",JOptionPane.YES_NO_OPTION);
+                if(option==JOptionPane.YES_OPTION){
                     listModel.clear();
                     list.setModel(listModel);
                     JOptionPane.showMessageDialog(mainPanel,"Deleted Successfully", "Delete",JOptionPane.INFORMATION_MESSAGE, icon);
-                }else {
-                    JOptionPane.showMessageDialog(mainPanel,"No list to delete", "Error",JOptionPane.ERROR_MESSAGE);
+                }else{
+                    JOptionPane.showMessageDialog(mainPanel,"Canceled", "Error",JOptionPane.ERROR_MESSAGE);
                 }
+            }else {
+                JOptionPane.showMessageDialog(mainPanel,"No list to delete", "Error",JOptionPane.ERROR_MESSAGE);
+            }
         });
 
         //Help Button
@@ -192,7 +199,7 @@ public class Main extends JFrame{
         if(Objects.equals(name, "New List")){
             name="New List "+ countlists;
         }
-        list_obj newElement = new list_obj(name);
+        ListObj newElement = new ListObj(name);
         List<String> texts = new ArrayList<>();
         List<String> titles = new ArrayList<>();
         for (int i=0;i<9;i++){
@@ -208,15 +215,15 @@ public class Main extends JFrame{
     }
 
     //save changes when update textfields
-    private void addDocumentlisteners(){
+    private void addDocumentListeners(){
         addDocumentListener(tf_title1,ta_1,0);
         addDocumentListener(tf_title2,ta_2,1);
         addDocumentListener(tf_title3,ta_3,2);
     }
 
     //class save changes in textfields
-    private void savechanges(int textAreaIndex){
-        list_obj selected = list.getSelectedValue();
+    private void saveChanges(int textAreaIndex){
+        ListObj selected = list.getSelectedValue();
         if(selected != null){
             List<String> texts = selected.getCopies();
             List<String> titles = selected.getTitles();
@@ -252,17 +259,17 @@ public class Main extends JFrame{
 
     //if textareas and titles are empty, fill with:
     public void clearTextAreas(){
-        ta_1.setText("Insert text to copy");
-        ta_2.setText("Insert text to copy");
-        ta_3.setText("Insert text to copy");
-        tf_title1.setText("title 1");
-        tf_title2.setText("title 2");
-        tf_title3.setText("title 3");
+        ta_2.setText("Create list or Insert text");
+        ta_1.setText("Create list or Insert text");
+        ta_3.setText("Create list or Insert text");
+        tf_title1.setText("title");
+        tf_title2.setText("title");
+        tf_title3.setText("title");
     }
 
     //index control
-    public void updateIndex_TextAreas(int direction){
-        list_obj selected = list.getSelectedValue();
+    public void updateIndexTextAreas(int direction){
+        ListObj selected = list.getSelectedValue();
         if(selected!=null){
             int currentIndex = Integer.parseInt(index.getText());
             int newIndex = Math.max(0,Math.min(currentIndex+direction,2));
@@ -291,24 +298,27 @@ public class Main extends JFrame{
         textArea.getDocument().addDocumentListener(new DocumentListener() {
             @Override
             public void insertUpdate(DocumentEvent e) {
-                savechanges(textAreaIndex);
+                saveChanges(textAreaIndex);
             }
             @Override
             public void removeUpdate(DocumentEvent e) {
-                savechanges(textAreaIndex);
+                saveChanges(textAreaIndex);
             }
             @Override
             public void changedUpdate(DocumentEvent e) {
-                savechanges(textAreaIndex);
+                saveChanges(textAreaIndex);
             }
         });
         tx_title.getDocument().addDocumentListener(new DocumentListener() {
             @Override
-            public void insertUpdate(DocumentEvent e) {savechanges(textAreaIndex);}
+            public void insertUpdate(DocumentEvent e) {
+                saveChanges(textAreaIndex);}
             @Override
-            public void removeUpdate(DocumentEvent e) {savechanges(textAreaIndex);}
+            public void removeUpdate(DocumentEvent e) {
+                saveChanges(textAreaIndex);}
             @Override
-            public void changedUpdate(DocumentEvent e) {savechanges(textAreaIndex);}
+            public void changedUpdate(DocumentEvent e) {
+                saveChanges(textAreaIndex);}
         });
         //insertUpdate when text is inserted
         //removeUpdate when text is delete, backspace key or clear button

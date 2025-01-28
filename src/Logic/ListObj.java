@@ -5,7 +5,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class list_obj implements Serializable {
+public class ListObj implements Serializable {
     @Serial
     private static final long serialVersionUID =1L;
 
@@ -13,7 +13,7 @@ public class list_obj implements Serializable {
     private List<String> titles;
     private List<String> copies;
 
-    public list_obj(String name) {
+    public ListObj(String name) {
         this.name = name;
         this.titles = new ArrayList<>(9);
         this.copies = new ArrayList<>(9);

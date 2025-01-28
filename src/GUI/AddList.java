@@ -1,6 +1,6 @@
 package GUI;
 
-import Logic.mainfct;
+import Logic.Utils;
 import javax.swing.*;
 import java.awt.event.*;
 
@@ -42,25 +42,22 @@ public class AddList extends JFrame{
         });
 
             //save list with the entered name
-        btn_listnamesave.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
+        btn_listnamesave.addActionListener(e -> {
                 String nameList = tf_newlistname.getText();
                     //give a name to new list
                 if(nameList.isEmpty()){
                     JOptionPane.showMessageDialog(mainpanel_addlist,"The name can't be null","No null", JOptionPane.OK_OPTION);
                 } else if(nameList.length()>20) {
                     // Call the error method
-                    mainfct.ErrorLenght(AddList.this,20);
+                    Utils.errorLength(AddList.this,20);
                 } else{
                     main.addList(tf_newlistname.getText());
                     main.setVisible(true);
                     setVisible(false);
                 }
-            }
         });
     }
 
-    //class main
+    //windows
     public void setMain(Main main){this.main = main;}
 }
